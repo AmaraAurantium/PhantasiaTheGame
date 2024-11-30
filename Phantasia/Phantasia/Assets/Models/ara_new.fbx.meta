@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 204bd6e11a18f4302a4d4c57986b132d
+guid: b49dee6e8fea84a878b269c59a7ab507
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Base_color
-    second: {fileID: 2100000, guid: 5f305d2d7762d43f98f1dd790133d7d4, type: 2}
+      name: Body
+    second: {fileID: 2100000, guid: 1406a3d7bb87c4b5bbff539f2f46c13a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Clothes
-    second: {fileID: 2100000, guid: 482be5461d216450cb931585a906546a, type: 2}
+      name: Face
+    second: {fileID: 2100000, guid: 335091e07e09c4362a68c51b9549b4f3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Face_color
-    second: {fileID: 2100000, guid: f7994c5848fba49c19067460661f0969, type: 2}
+      name: Hair
+    second: {fileID: 2100000, guid: 7d12d4eb1ca10492d8b5dd8a50749719, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -506,13 +506,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: ara(Clone)
+    - name: ara_new(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Ara_Armature
-      parentName: ara(Clone)
+      parentName: ara_new(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
@@ -1092,7 +1092,7 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Ara_Model
-      parentName: ara(Clone)
+      parentName: ara_new(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
