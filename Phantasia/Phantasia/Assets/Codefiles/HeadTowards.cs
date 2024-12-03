@@ -6,16 +6,17 @@ using UnityEngine;
 
 public class HeadTowards : MonoBehaviour
 {
+    [SerializeField] private SkinnedMeshRenderer mesh;
     public Material Facematerial;
+
     // Start is called before the first frame update
     private void SetHeadDirection()
     {
-        if(this.Facematerial != null)
-        {
-            this.Facematerial.SetVector("_HeadForward",this.transform.forward);
-            this.Facematerial.SetVector("_HeadRight",this.transform.right);
-            Debug.Log("3");
-        }
+        Material[] materials = mesh.materials;
+
+        materials[1].SetVector("_HeadForward", this.transform.forward);
+        materials[1].SetVector("_HeadRight", this.transform.right);
+        mesh.sharedMaterials = materials;
     }
 
     // Update is called once per frame
