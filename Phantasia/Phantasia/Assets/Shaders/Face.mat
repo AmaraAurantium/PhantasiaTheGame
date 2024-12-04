@@ -66,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: 553ea07b92e0b47979bc2f7434e46547, type: 3}
+        m_Texture: {fileID: 2800000, guid: 494773904e2314765af1a6d3d974014f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -164,8 +164,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _H: {r: 1.34, g: 0.5, b: 0, a: 0}
-    - _HeadForward: {r: 0.9999998, g: -0.00000008533243, b: -0.0000005946208, a: 0}
-    - _HeadRight: {r: -0.0000005948573, g: -0.002804027, b: -0.9999959, a: 0}
+    - _HeadForward: {r: -1.8627673e-18, g: 0.0028042768, b: 0.99999607, a: 0}
+    - _HeadRight: {r: 1, g: -1.862751e-18, b: 1.8679984e-18, a: 0}
     - _LightDir: {r: -6.09, g: 0, b: 0, a: 0}
     - _RimPower: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
