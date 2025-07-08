@@ -136,7 +136,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _ToonRampOffset: 0.6
+    - _ToonRampOffset: 0.69
     - _ToonRampSmoothness: 0
     - _UVSec: 0
     - _WorkflowMode: 1
