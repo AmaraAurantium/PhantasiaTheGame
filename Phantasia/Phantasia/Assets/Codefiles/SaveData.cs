@@ -29,6 +29,6 @@ public class SaveData
         tasklist.Add(new TaskObject(0f, "Doodle /(._._)", false));
         tasklist.Add(new TaskObject(0f, "Observe 3 passerby", false));
         tasklist.Add(new TaskObject(0f, "Take a picture of a funny looking tree or cloud", false));
-        araoutwardness = Random.Range(0,10);
+        //araoutwardness = Random.Range(0,10);
     }
 }
