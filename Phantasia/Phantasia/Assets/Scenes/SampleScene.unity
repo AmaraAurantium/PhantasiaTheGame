@@ -2324,8 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18ae7654b7f64b939b8a262158bf5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueKnotName: Intro
-  ara: {fileID: 1059207757}
+  araInteractionInfos: []
 --- !u!1 &557685338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 731673777345037644, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
@@ -2916,6 +2915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905279196}
   - component: {fileID: 905279197}
+  - component: {fileID: 905279198}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2951,7 +2951,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312d3f370b77b40d4a83ebb82090a411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  araInteraction: {fileID: 0}
+  araInteraction: {fileID: 905279198}
+--- !u!114 &905279198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905279195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18ae7654b7f64b939b8a262158bf5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  araInteractionInfos:
+  - dialogueKnotName: Intro
+    ara: {fileID: 1059207757}
 --- !u!1 &933113679
 GameObject:
   m_ObjectHideFlags: 0

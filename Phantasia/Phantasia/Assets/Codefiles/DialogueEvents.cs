@@ -5,13 +5,14 @@ using System;
 
 public class DialogueEvents
 {
-    public event Action<string> onEnterDialogue;
+    public event Func<string, bool> onEnterDialogue;
 
-    public void EnterDialogue(string knotName)
+    public bool EnterDialogue(string knotName)
     {
         if (onEnterDialogue != null)
         {
             onEnterDialogue(knotName);
         }
+        return false;
     }
 }

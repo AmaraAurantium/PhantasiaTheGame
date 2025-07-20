@@ -5,40 +5,48 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-//OK this is really screwed up. monobehaviour works with events manager maybe?
-public class AraInteraction: MonoBehaviour
+[Serializable]
+struct AraInteractionInfo
+{
+    [SerializeField] public string dialogueKnotName;
+    [SerializeField] public GameObject ara;
+}
+
+public class AraInteraction : MonoBehaviour
 {
     [Header("Dialogue")]
 
-    [SerializeField] private string dialogueKnotName;
-
-    public GameObject ara;
+    [SerializeField] private List<AraInteractionInfo> araInteractionInfos;
 
     public event Action onAraClicked;
     public event Action onScreenClicked;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if (ara == getClickedObject(out RaycastHit hit))
+            bool bHandled = false;
+            foreach (var araInteractionInfo in araInteractionInfos)
             {
-                Debug.Log("ara pressed");
-                onAraClicked?.Invoke();
-
-                if (!dialogueKnotName.Equals(""))
+                var clickedObj = getClickedObject(out RaycastHit hit);
+                if(araInteractionInfo.ara == clickedObj)
                 {
-                    EventsManager.instance.dialogueEvents.EnterDialogue(dialogueKnotName);
+                    onAraClicked?.Invoke();
+
+                    if (!araInteractionInfo.dialogueKnotName.Equals(""))
+                    {
+                        bHandled = EventsManager.instance.dialogueEvents.EnterDialogue(araInteractionInfo.dialogueKnotName);
+                    }
                 }
             }
-            else
+            if (!bHandled)
             {
                 onScreenClicked?.Invoke();
             }

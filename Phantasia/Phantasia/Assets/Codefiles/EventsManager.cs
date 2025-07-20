@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class EventsManager : MonoBehaviour
 {
-    public static EventsManager instance { get; private set; }
+    public static EventsManager instance
+    {
+        get
+        {
+            if(_instance == null)
+            {
+                GameObject go = new GameObject("EventsManager");
+                _instance = go.AddComponent<EventsManager>();
+                DontDestroyOnLoad(go);
+            }
+            return _instance;
+        }
+    }
+
+    private static EventsManager _instance = null;
 
     public DialogueEvents dialogueEvents;
     public AraInteraction araInteraction;
 
     private void Awake()
     {
-        if (instance != null)
+        if(_instance != null && _instance != this)
         {
-            Debug.LogError("Found more than one Events Manager in the scene.");
+            Destroy(this);
+            Debug.LogWarning("Found more than one Events Manager in the scene.");
+            return;
         }
-        instance = this;
+        _instance = this;
 
         //initialize all events
-        araInteraction = new AraInteraction();
         dialogueEvents = new DialogueEvents();
     }
 

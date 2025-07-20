@@ -16,15 +16,16 @@ public class DialogueManager : MonoBehaviour
         story = new Story(inkJson.text);
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        if (EventsManager.instance == null) return;
         EventsManager.instance.dialogueEvents.onEnterDialogue += EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked += SubmitPressed;
 
 
     }
 
-    private void OnDisable()
+    private void Destroy()
     {
         EventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked -= SubmitPressed;
@@ -42,11 +43,11 @@ public class DialogueManager : MonoBehaviour
         ContinueOrExitStory();
     }
 
-    private void EnterDialogue(string knotname)
+    private bool EnterDialogue(string knotname)
     {
         if (dialoguePlaying)
         {
-            return;
+            return false;
         }
 
         dialoguePlaying = true;
@@ -61,6 +62,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         ContinueOrExitStory();
+        return true;
     }
 
     private void ContinueOrExitStory()
