@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Ink Story")]
     [SerializeField] private TextAsset inkJson;
     private Story story;
+    private int currentChoiceIndex = -1;
 
     private bool dialoguePlaying = false;
 
@@ -21,15 +22,21 @@ public class DialogueManager : MonoBehaviour
         if (EventsManager.instance == null) return;
         EventsManager.instance.dialogueEvents.onEnterDialogue += EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked += SubmitPressed;
+        EventsManager.instance.dialogueEvents.onUpdateChoiceIndex += UpdateChoiceIndex;
 
 
     }
 
-    private void Destroy()
+    private void OnDestroy()
     {
         EventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked -= SubmitPressed;
+        EventsManager.instance.dialogueEvents.onUpdateChoiceIndex -= UpdateChoiceIndex;
+    }
 
+    private void UpdateChoiceIndex(int choiceIndex)
+    {
+        this.currentChoiceIndex = choiceIndex;
     }
 
     private void SubmitPressed()
@@ -70,14 +77,21 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueOrExitStory()
     {
+        //make a choice if applicable
+        if(story.currentChoices.Count > 0 && currentChoiceIndex != -1)
+        {
+            story.ChooseChoiceIndex(currentChoiceIndex);
+            //reset choice index for next time
+            currentChoiceIndex = -1;
+        }
         if (story.canContinue)
         {
             string dialogueLine = story.Continue();
             //print to console for now
-            Debug.Log(dialogueLine);
-            EventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine);
+            //Debug.Log(dialogueLine);
+            EventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
         }
-        else
+        else if (story.currentChoices.Count == 0)
         {
             ExitDialogue();
         }
@@ -88,6 +102,8 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("Exiting Dialogue");
 
         dialoguePlaying = false;
+
+        EventsManager.instance.dialogueEvents.DialogueFinished();
 
         //reset story state
         story.ResetState();
