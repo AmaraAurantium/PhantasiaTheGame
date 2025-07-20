@@ -15,4 +15,31 @@ public class DialogueEvents
         }
         return false;
     }
+
+    public event Action onDialogueStarted;
+    public void DialogueStarted()
+    {
+        if(onDialogueStarted != null)
+        {
+            onDialogueStarted();
+        }
+    }
+
+    public event Action onDialogueFinished;
+    public void DialogueFinished()
+    {
+        if (onDialogueFinished != null)
+        {
+            onDialogueFinished();
+        }
+    }
+
+    public event Action<string> onDisplayDialogue;
+    public void DisplayDialogue(string dialogueLine)
+    {
+        if (onDisplayDialogue != null)
+        {
+            onDisplayDialogue(dialogueLine);
+        }
+    }
 }

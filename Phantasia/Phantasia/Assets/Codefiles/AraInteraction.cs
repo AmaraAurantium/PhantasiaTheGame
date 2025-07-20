@@ -34,7 +34,7 @@ public class AraInteraction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
         {
             bool bHandled = false;
             foreach (var araInteractionInfo in araInteractionInfos)
@@ -47,7 +47,7 @@ public class AraInteraction : MonoBehaviour
                     if (!araInteractionInfo.dialogueKnotName.Equals(""))
                     {
                         bHandled = EventsManager.instance.dialogueEvents.EnterDialogue(araInteractionInfo.dialogueKnotName);
-                        Debug.Log("bHandled state: " + bHandled);
+                        //Debug.Log("bHandled state: " + bHandled);
                     }
                 }
             }

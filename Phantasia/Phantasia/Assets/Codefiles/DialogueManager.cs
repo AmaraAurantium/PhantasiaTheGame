@@ -52,6 +52,9 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePlaying = true;
 
+        //inform other parts of out system that we've started dialogue
+        EventsManager.instance.dialogueEvents.DialogueStarted();
+
         if (!knotname.Equals(""))
         {
             story.ChoosePathString(knotname);
@@ -72,6 +75,7 @@ public class DialogueManager : MonoBehaviour
             string dialogueLine = story.Continue();
             //print to console for now
             Debug.Log(dialogueLine);
+            EventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine);
         }
         else
         {
@@ -81,7 +85,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogue()
     {
-        Debug.Log("Exiting Dialogue");
+        //Debug.Log("Exiting Dialogue");
 
         dialoguePlaying = false;
 
