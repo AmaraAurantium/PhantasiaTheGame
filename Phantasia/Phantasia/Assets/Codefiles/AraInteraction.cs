@@ -21,6 +21,10 @@ public class AraInteraction : MonoBehaviour
     public event Action onAraClicked;
     public event Action onScreenClicked;
 
+    void Awake()
+    {
+        
+    }
 
     void Start()
     {
@@ -43,11 +47,13 @@ public class AraInteraction : MonoBehaviour
                     if (!araInteractionInfo.dialogueKnotName.Equals(""))
                     {
                         bHandled = EventsManager.instance.dialogueEvents.EnterDialogue(araInteractionInfo.dialogueKnotName);
+                        Debug.Log("bHandled state: " + bHandled);
                     }
                 }
             }
             if (!bHandled)
             {
+                //Debug.Log("clicked other space in screen.");
                 onScreenClicked?.Invoke();
             }
         }

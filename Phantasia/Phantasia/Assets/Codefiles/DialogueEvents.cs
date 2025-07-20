@@ -11,7 +11,7 @@ public class DialogueEvents
     {
         if (onEnterDialogue != null)
         {
-            onEnterDialogue(knotName);
+            return onEnterDialogue(knotName);
         }
         return false;
     }
