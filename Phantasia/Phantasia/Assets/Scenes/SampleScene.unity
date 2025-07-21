@@ -1171,7 +1171,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5210527659767468829, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 599950159}
   m_SourcePrefab: {fileID: 100100000, guid: 97d3edd3ac2c64c56baa088d6a1af47c, type: 3}
 --- !u!1 &321406879
 GameObject:
@@ -1487,6 +1491,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330672137}
   m_CullTransparentMesh: 1
+--- !u!1 &333689386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5210527659767468829, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493601599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &333689388
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333689386}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.14
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.065, z: 0}
 --- !u!114 &399166861 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8306128897179564015, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
@@ -2581,6 +2614,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adf618ad8be64fe5b059d468d2d8392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &599950157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5210527659767468829, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+    type: 3}
+  m_PrefabInstance: {fileID: 278460610}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &599950159
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599950157}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.14
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.065, z: 0}
 --- !u!114 &611413347 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3498147390538336929, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
@@ -3207,6 +3269,10 @@ MonoBehaviour:
   araInteractionInfos:
   - dialogueKnotName: Intro
     ara: {fileID: 1059207757}
+  - dialogueKnotName: Desk
+    ara: {fileID: 599950157}
+  - dialogueKnotName: Bed
+    ara: {fileID: 333689386}
 --- !u!114 &905279199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,7 +3972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 45}
+  m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1144200862
@@ -5249,7 +5315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 100, y: 500}
+  m_AnchoredPosition: {x: 100, y: 550}
   m_SizeDelta: {x: -200, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1452270118
@@ -5568,7 +5634,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5210527659767468829, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 333689388}
   m_SourcePrefab: {fileID: 100100000, guid: 97d3edd3ac2c64c56baa088d6a1af47c, type: 3}
 --- !u!114 &1495897418 stripped
 MonoBehaviour:

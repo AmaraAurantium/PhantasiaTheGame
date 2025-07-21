@@ -87,9 +87,24 @@ public class DialogueManager : MonoBehaviour
         if (story.canContinue)
         {
             string dialogueLine = story.Continue();
-            //print to console for now
-            //Debug.Log(dialogueLine);
-            EventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
+
+            //handle the case where there's an empty line of dialogue
+            //by continuing until we get a line with content
+            while(IsLineBlank(dialogueLine) && story.canContinue)
+            {
+                dialogueLine = story.Continue();
+            }
+
+            //handle the case where that last line of dialogue is blank
+            //empty choice, external function, etc...)
+            if(IsLineBlank(dialogueLine) && !story.canContinue)
+            {
+                ExitDialogue();
+            }
+            else
+            {
+                EventsManager.instance.dialogueEvents.DisplayDialogue(dialogueLine, story.currentChoices);
+            }
         }
         else if (story.currentChoices.Count == 0)
         {
@@ -108,5 +123,8 @@ public class DialogueManager : MonoBehaviour
         //reset story state
         story.ResetState();
     }
-
+    private bool IsLineBlank(string dialogueLine)
+    {
+        return dialogueLine.Trim().Equals("") || dialogueLine.Trim().Equals("\n");
+    }
 }
