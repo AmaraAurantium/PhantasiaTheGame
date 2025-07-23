@@ -18,14 +18,14 @@ public class DialoguePanelUI : MonoBehaviour
         ResetPanel();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         EventsManager.instance.dialogueEvents.onDialogueStarted += DialogueStarted;
         EventsManager.instance.dialogueEvents.onDialogueFinished += DialogueFinished;
         EventsManager.instance.dialogueEvents.onDisplayDialogue += DisplayDialogue;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         EventsManager.instance.dialogueEvents.onDialogueStarted -= DialogueStarted;
         EventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;

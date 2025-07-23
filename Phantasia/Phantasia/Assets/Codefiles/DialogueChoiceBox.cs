@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
+
+public class DialogueChoiceBox : MonoBehaviour, ISelectHandler
+{
+    [Header("Components")]
+    [SerializeField] private Button button;
+    [SerializeField] private TextMeshProUGUI choiceText;
+
+    private int choiceIndex = -1;
+
+    public void SetChoiceText(string choiceTextString)
+    {
+        choiceText.text = choiceTextString;
+    }
+
+    public void SetChoiceIndex(int choiceIndex)
+    {
+        this.choiceIndex = choiceIndex;
+    }
+
+    public void SelectButton()
+    {
+        button.Select();
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        EventsManager.instance.dialogueEvents.UpdateChoiceIndex(choiceIndex);
+    }
+}
