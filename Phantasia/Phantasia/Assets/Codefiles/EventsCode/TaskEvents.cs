@@ -1,43 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
 
 public class TaskEvents
 {
-    public event Action onTaskCompleted;
-    public void TaskCompleted()
+    public event Action<string> onTaskCompleted;
+    public void TaskCompleted(string id)
     {
         if (onTaskCompleted != null)
         {
-            onTaskCompleted();
+            onTaskCompleted(id);
         }
     }
 
-    public event Action onTaskUncompleted;
-    public void TaskUncompleted()
+    public event Action<string> onTaskUncompleted;
+    public void TaskUncompleted(string id)
     {
         if (onTaskUncompleted != null)
         {
-            onTaskUncompleted();
+            onTaskUncompleted(id);
         }
     }
 
-    public event Action onTaskHidden;
-    public void TaskHidden()
+    public event Action<string> onTaskHidden;
+    public void TaskHidden(string id)
     {
         if (onTaskHidden != null)
         {
-            onTaskHidden();
+            onTaskHidden(id);
         }
     }
 
-    public event Action onTaskClaimed;
-    public void TaskClaimed()
+    public event Action<string> onTaskClaimed;
+    public void TaskClaimed(string id)
     {
         if (onTaskClaimed != null)
         {
-            onTaskClaimed();
+            onTaskClaimed(id);
+        }
+    }
+
+    public event Action<TaskObject> onTaskStateChanged;
+    public void TaskStateChanged(TaskObject task)
+    {
+        if (onTaskStateChanged != null)
+        {
+            onTaskStateChanged(task);
         }
     }
 }

@@ -3045,8 +3045,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455429375}
+  - component: {fileID: 455429376}
   m_Layer: 0
-  m_Name: QuestManager
+  m_Name: TaskManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3067,6 +3068,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 905279196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455429376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455429374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1065a61a2ed064f18a64ff66866f0a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &468448756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12899,6 +12912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentParent: {fileID: 2089180216}
   taskScrollingList: {fileID: 321406883}
+  doneToggle: {fileID: 1532517855}
   taskTitle: {fileID: 1237776463}
   taskTime: {fileID: 422713772}
   taskDescription: {fileID: 778884501}

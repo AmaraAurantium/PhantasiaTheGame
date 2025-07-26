@@ -9,6 +9,7 @@ public class TaskLogUI : MonoBehaviour
     [Header("Components")]
     [SerializeField] private GameObject contentParent;
     [SerializeField] private TaskScrollingList taskScrollingList;
+    [SerializeField] private Toggle doneToggle;
     [SerializeField] private TMP_InputField taskTitle;
     [SerializeField] private TMP_InputField taskTime;
     [SerializeField] private TMP_InputField taskDescription;
@@ -45,6 +46,14 @@ public class TaskLogUI : MonoBehaviour
         taskTitle.text = task.title;
         taskTitle.readOnly = true;
         taskDescription.text = task.getDescription();
+        if (task.state == TaskState.COMPLETED || task.state == TaskState.CLAIMED)
+        {
+            doneToggle.isOn = true;
+        }
+        else
+        {
+            doneToggle.isOn = false;
+        }
 
         if (!task.getIsUserTask())
         {
