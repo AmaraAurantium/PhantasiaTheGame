@@ -18,14 +18,14 @@ public class DialoguePanelUI : MonoBehaviour
         ResetPanel();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         EventsManager.instance.dialogueEvents.onDialogueStarted += DialogueStarted;
         EventsManager.instance.dialogueEvents.onDialogueFinished += DialogueFinished;
         EventsManager.instance.dialogueEvents.onDisplayDialogue += DisplayDialogue;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         EventsManager.instance.dialogueEvents.onDialogueStarted -= DialogueStarted;
         EventsManager.instance.dialogueEvents.onDialogueFinished -= DialogueFinished;
@@ -76,7 +76,7 @@ public class DialoguePanelUI : MonoBehaviour
 
             if(inkChoiceIndex == 0)
             {
-                choiceButton.SelectButton();
+                //choiceButton.SelectButton();
                 EventsManager.instance.dialogueEvents.UpdateChoiceIndex(0);
             }
 

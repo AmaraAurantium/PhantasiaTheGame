@@ -6,7 +6,7 @@ using TMPro;
 
 public class NewTask : MonoBehaviour
 {
-    public GameObject taskprefab;
+    /*public GameObject taskprefab;
     public GameObject solidcheck;
     public TextMeshProUGUI title;
     public TextMeshProUGUI time;
@@ -48,5 +48,5 @@ public class NewTask : MonoBehaviour
             warning.SetActive(true);
         }
 
-    }
+    }*/
 }

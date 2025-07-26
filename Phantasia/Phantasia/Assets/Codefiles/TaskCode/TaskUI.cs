@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class TaskUI : MonoBehaviour
 {
-    public GameObject tasksys;
-    public GameObject edittaskinterface;
-
-    public SaveData data;
+    /*[Header("Components")]
+    [SerializeField] private TaskItem taskItem;
+    public Transform parentCanvasTransform;
+    private SaveData data;
 
     private void Awake()
     {
         data = SaveSystem.load();
     }
 
-
-    public void organize(int num1, int num2, int num3)
+    public void taskListReload()
     {
-        data.sysnum[0] = num1;
-        data.sysnum[1] = num2;
-        data.sysnum[2] = num3;
-
-        for (int i = 0; i < data.tasklist.Count; i++)
+        foreach (TaskObject task in data.taskList)
         {
+            GameObject newTaskUI = Instantiate(uiPrefab, parentCanvasTransform);
         }
     }
+
 
     public void tally()
     {
@@ -61,37 +58,7 @@ public class TaskUI : MonoBehaviour
     void Update()
     {
 
-    }
+    }*/
 }
 
 
-//generate three nonrepeating numbers
-//cannot run during instantation
-/*int num1, num2, num3, temp;
-num1 = Random.Range(0, 10);
-temp = Random.Range(0, 10);
-while (temp == num1)
-{
-    if (temp == 9)
-    {
-        temp = 0;
-    }
-    else
-    {
-        temp++;
-    }
-}
-num2 = temp;
-temp = Random.Range(0, 10);
-while (temp == num1 || temp == num2)
-{
-    if (temp == 9)
-    {
-        temp = 0;
-    }
-    else
-    {
-        temp++;
-    }
-}
-num3 = temp;*/

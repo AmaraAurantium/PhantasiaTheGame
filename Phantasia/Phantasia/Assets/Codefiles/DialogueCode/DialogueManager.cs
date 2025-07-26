@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     {
         EventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked -= SubmitPressed;
-        EventsManager.instance.dialogueEvents.onUpdateChoiceIndex -= UpdateChoiceIndex;
+         EventsManager.instance.dialogueEvents.onUpdateChoiceIndex -= UpdateChoiceIndex;
     }
 
     private void UpdateChoiceIndex(int choiceIndex)
