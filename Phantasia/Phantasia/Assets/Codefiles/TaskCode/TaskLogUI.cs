@@ -18,15 +18,15 @@ public class TaskLogUI : MonoBehaviour
 
     private void OnEnable()
     {
-        //EventsManager.instance.taskEvents.onTaskStateChange += TaskStateChange;
+        EventsManager.instance.taskEvents.onTaskStateChanged += TaskStateChanged;
     }
 
     private void OnDisable()
     {
-        //EventsManager.instance.taskEvents.onTaskStateChange -= TaskStateChange;
+        EventsManager.instance.taskEvents.onTaskStateChanged -= TaskStateChanged;
     }
 
-    private void TaskStateChange(TaskObject task)
+    private void TaskStateChanged(TaskObject task)
     {
         //add button to scrolling list if not already added
         TaskButton taskButton = taskScrollingList.CreateButtonIfNotExists(task, () =>
@@ -38,6 +38,7 @@ public class TaskLogUI : MonoBehaviour
         {
             firstSelectedButton = taskButton.button;
             firstSelectedButton.Select();
+
         }
     }
     private void SetTaskLogInfo(TaskObject task)
@@ -46,6 +47,7 @@ public class TaskLogUI : MonoBehaviour
         taskTitle.text = task.title;
         taskTitle.readOnly = true;
         taskDescription.text = task.getDescription();
+
         if (task.state == TaskState.COMPLETED || task.state == TaskState.CLAIMED)
         {
             doneToggle.isOn = true;

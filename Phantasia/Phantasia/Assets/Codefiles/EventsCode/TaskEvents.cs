@@ -46,4 +46,13 @@ public class TaskEvents
             onTaskStateChanged(task);
         }
     }
+
+    public event Action<TaskObject> onPanelContentUpdate;
+    public void PanelContentUpdate(TaskObject task)
+    {
+        if (onPanelContentUpdate != null)
+        {
+            onPanelContentUpdate(task);
+        }
+    }
 }

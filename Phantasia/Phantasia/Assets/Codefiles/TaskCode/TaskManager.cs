@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    private Dictionary<string, TaskObject> taskList;
+    public Dictionary<string, TaskObject> taskList;
 
     private void Awake()
     {
@@ -32,9 +32,11 @@ public class TaskManager : MonoBehaviour
         //broadcast the initial state of all tasks on startup
         foreach (TaskObject task in taskList.Values)
         {
+            EventsManager.instance.taskEvents.PanelContentUpdate(task);
             EventsManager.instance.taskEvents.TaskStateChanged(task);
         }
     }
+
     private void TaskHidden(string id)
     {
         Debug.Log("Hide task: " + id);
@@ -42,11 +44,15 @@ public class TaskManager : MonoBehaviour
 
     private void TaskCompleted(string id)
     {
+        TaskObject currentTask = GetTaskByID(id);
+        currentTask.completetask();
         Debug.Log("Complete task: " + id);
     }
 
     private void TaskUncompleted(string id)
     {
+        TaskObject currentTask = GetTaskByID(id);
+        currentTask.uncompletetask();
         Debug.Log("Uncomplete task: " + id);
     }
 
