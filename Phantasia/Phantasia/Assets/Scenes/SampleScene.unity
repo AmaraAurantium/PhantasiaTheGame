@@ -4913,7 +4913,6 @@ GameObject:
   m_Component:
   - component: {fileID: 813188352}
   - component: {fileID: 813188353}
-  - component: {fileID: 813188354}
   m_Layer: 0
   m_Name: Camera Switch Handler
   m_TagString: Untagged
@@ -4955,18 +4954,6 @@ MonoBehaviour:
   deskara: {fileID: 557685338}
   bedara: {fileID: 1657726909}
   camswitch: 0
---- !u!114 &813188354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813188350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05936946c4e2f401dbdf76a8b109940d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &826751421
 PrefabInstance:
   m_ObjectHideFlags: 0

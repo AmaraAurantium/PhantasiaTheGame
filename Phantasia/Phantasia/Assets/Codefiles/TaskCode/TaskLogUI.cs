@@ -30,6 +30,7 @@ public class TaskLogUI : MonoBehaviour
 			if (firstSelectedButton == null)
 			{
 				firstSelectedButton = taskButton.button;
+				firstSelectedButton.Select();
 			}
 		}
 	}
