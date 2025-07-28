@@ -7,11 +7,11 @@ using UnityEngine;
 public class TaskObject
 {
     public string title;
-    public TaskState state;
-    private bool isUserTask;
-    private string description;
+    public TaskState state { get; private set; }
+    [SerializeField] private bool isUserTask;
+    [SerializeField] private string description;
+    [SerializeField] private float estimateTime;
     private int timesCompleted;//only applicable for system tasks
-    private float estimateTime;
     private int coin;
 
     //constructor

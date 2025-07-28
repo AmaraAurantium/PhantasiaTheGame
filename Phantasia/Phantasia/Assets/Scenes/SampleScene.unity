@@ -2946,6 +2946,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1065a61a2ed064f18a64ff66866f0a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskList:
+  - title: Stay Hydrated!
+    isUserTask: 0
+    description: Get a sip of water! (And if you want to, take a picture of your
+      cup/mug/bottle and upload it on X under #aurantiYUM)
+    estimateTime: 0
+  - title: Touch Grass :3
+    isUserTask: 0
+    description: 'I challenge you to find a pretty leaf! It has to be prettier than
+      the two I got on my head! #aurantiYUM '
+    estimateTime: 0
+  - title: Cloudy Day
+    isUserTask: 0
+    description: Imagine if you could bite into a cloud sized cotton-candy...YUMMMM...Have
+      you seen a funny looking cloud lately? I wanna see! #aurantiYUM
+    estimateTime: 0
+  - title: Mogu Mogu
+    isUserTask: 0
+    description: Good food always brightens up a bad day! Make sure to have a hearty
+      meal today! #aurantiYUM
+    estimateTime: 0
+  - title: Treasure?
+    isUserTask: 0
+    description: pstttt! I've heard that top shelves often contain rare treasures
+      from the past! Check out your top shelf!
+    estimateTime: 0
+  - title: Doodle /(._._)
+    isUserTask: 0
+    description: Hey! Can I ask you something? If it's alright with you, can you
+      draw me real quick? I'll pose for you! #aurantiYUM
+    estimateTime: 0
 --- !u!1001 &468448756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4288,50 +4319,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668410835}
   m_CullTransparentMesh: 1
---- !u!1 &671794830
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 671794831}
-  - component: {fileID: 671794832}
-  m_Layer: 0
-  m_Name: UIScriptHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &671794831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671794830}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 610, y: 760.00037, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &671794832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671794830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea4643dea0c3408ebfd84b1041bec97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &707451155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5003279153171234804, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
@@ -8173,6 +8160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1277860951}
+  - component: {fileID: 1277860952}
   m_Layer: 5
   m_Name: Today's Tasks Panel
   m_TagString: Untagged
@@ -8204,6 +8192,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1277860952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277860950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73606d6c51cf418ca25e5d79699cc3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentParent: {fileID: 2089180216}
+  taskScrollingList: {fileID: 321406883}
+  doneToggle: {fileID: 1532517855}
+  taskTitle: {fileID: 1237776463}
+  taskTime: {fileID: 422713772}
+  taskDescription: {fileID: 778884501}
 --- !u!114 &1313190469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3125974672356113771, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
@@ -9965,7 +9971,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1532517854}
   - component: {fileID: 1532517855}
-  - component: {fileID: 1532517856}
   m_Layer: 5
   m_Name: Done Toggle
   m_TagString: Untagged
@@ -10039,20 +10044,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1277860952}
+        m_TargetAssemblyTypeName: TaskLogUI, Assembly-CSharp
+        m_MethodName: ToggleValueChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
---- !u!114 &1532517856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532517853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead153def740340e091babe2e643a6ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1542408854
 GameObject:
   m_ObjectHideFlags: 0
@@ -10469,7 +10474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1651298086}
   m_Layer: 5
-  m_Name: Edit TaskPanel
+  m_Name: Task Details Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12564,14 +12569,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2089180217}
   - component: {fileID: 2089180218}
-  - component: {fileID: 2089180219}
   m_Layer: 5
   m_Name: Task System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2089180217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12604,24 +12608,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089180216}
   m_CullTransparentMesh: 1
---- !u!114 &2089180219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089180216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73606d6c51cf418ca25e5d79699cc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentParent: {fileID: 2089180216}
-  taskScrollingList: {fileID: 321406883}
-  doneToggle: {fileID: 1532517855}
-  taskTitle: {fileID: 1237776463}
-  taskTime: {fileID: 422713772}
-  taskDescription: {fileID: 778884501}
 --- !u!114 &2108288796 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 333533322949258155, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
@@ -13225,6 +13211,5 @@ SceneRoots:
   - {fileID: 1493601599}
   - {fileID: 1377351451}
   - {fileID: 1749148289}
-  - {fileID: 671794831}
   - {fileID: 813188352}
   - {fileID: 905279196}
