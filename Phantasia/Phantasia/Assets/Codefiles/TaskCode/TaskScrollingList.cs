@@ -37,11 +37,11 @@ public class TaskScrollingList : MonoBehaviour
         //initialize and set up function for when the button is selected
         if (task.getIsUserTask())
         {
-            taskButton.UserInitialize(task.title, task.getEstimateTimeAsString(), selectAction);
+            taskButton.UserInitialize(task, selectAction);
         }
         else
         {
-            taskButton.SystemInitialize(task.title, task.getEstimateTimeAsString(), selectAction);
+            taskButton.SystemInitialize(task, selectAction);
         }
         idToButtonMap[task.title] = taskButton;
         return taskButton;

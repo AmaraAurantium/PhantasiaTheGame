@@ -16,7 +16,6 @@ public class TaskManager : MonoBehaviour
 	private void Awake()
 	{
 		instance = this;
-		//taskList = CreateTaskList();
 	}
 
 	private void OnEnable()
@@ -33,10 +32,6 @@ public class TaskManager : MonoBehaviour
 		EventsManager.instance.taskEvents.onTaskCompleted -= TaskCompleted;
 		EventsManager.instance.taskEvents.onTaskUncompleted -= TaskUncompleted;
 		EventsManager.instance.taskEvents.onTaskClaimed -= TaskClaimed;
-	}
-
-	private void Start()
-	{
 	}
 
 	private void TaskHidden(string id)
@@ -80,11 +75,5 @@ public class TaskManager : MonoBehaviour
 		}
 		Debug.LogError("ID not found in taskList: " + id);
 		return null;
-		// TaskObject task = taskList[id];
-		// if (task == null)
-		// {
-		// 	Debug.LogError("ID not found in taskList: " + id);
-		// }
-		// return task;
 	}
 }
