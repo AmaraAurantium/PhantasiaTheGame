@@ -6,6 +6,5 @@ public enum TaskState
 {
     HIDDEN,
     PROGRESS,
-    COMPLETED,
-    CLAIMED
+    COMPLETED
 }

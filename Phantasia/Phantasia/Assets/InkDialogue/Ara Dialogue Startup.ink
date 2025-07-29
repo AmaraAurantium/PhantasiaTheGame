@@ -1,4 +1,5 @@
-->Intro
+EXTERNAL ClaimCompleted()
+->Bed
 === Intro ===
 Oh... oh hi! I was wondering when you’d find me here.
 Any longer and I would’ve started making friends with fungi...
@@ -43,6 +44,12 @@ How's your day been so far?
 === Bed ===
 Why, good evening my friend!
 Going to rest soon?
+*[Ready to wrap up!]
+    ~ClaimCompleted()
+    You've done a lot today! 
+    Give yourself a huge pat on the back and get some well deserved sleep!
+    I'll see you in the morning!
+    -> END
 *[Good night, Ara]
     Sweet Dreams! 
     Let go of all your worries for now, and get a hearty sleep

@@ -31,6 +31,10 @@ public class TaskButton : MonoBehaviour, ISelectHandler
         if(designatedTask == task)
         {
             taskcompletetoggle.isOn = checkState(task);
+            if (task.getIsUserTask())
+            {
+                timetext.text = task.getEstimateTimeAsString() + " hr(s)";
+            }
         }
     }
 
@@ -47,14 +51,14 @@ public class TaskButton : MonoBehaviour, ISelectHandler
             designatedTask.completetask();
             EventsManager.instance.taskEvents.TaskCompleted(designatedTask.title);
             EventsManager.instance.taskEvents.TaskStateChanged(designatedTask);
-            Debug.Log("taskbutton log: " + designatedTask + "is now " + designatedTask.state);
+            //Debug.Log("taskbutton log: " + designatedTask.title + "is now " + designatedTask.state);
         }
         else
         {
             designatedTask.uncompletetask();
             EventsManager.instance.taskEvents.TaskUncompleted(designatedTask.title);
             EventsManager.instance.taskEvents.TaskStateChanged(designatedTask);
-            Debug.Log("taskbutton log: " + designatedTask + "is now " + designatedTask.state);
+            //Debug.Log("taskbutton log: " + designatedTask.title + "is now " + designatedTask.state);
         }
     }
 
@@ -65,7 +69,7 @@ public class TaskButton : MonoBehaviour, ISelectHandler
         taskcompletetoggle.isOn = checkState(task);
         this.button = this.GetComponent<Button>();
         this.titletext.text = task.title;
-        this.timetext.text = task.getEstimateTimeAsString() + "Hours";
+        this.timetext.text = task.getEstimateTimeAsString() + " hr(s)";
         this.onSelectAction = selectAction;
     }
 
@@ -86,7 +90,7 @@ public class TaskButton : MonoBehaviour, ISelectHandler
 
     private bool checkState(TaskObject task)
     {
-        if (task.state == TaskState.COMPLETED || task.state == TaskState.CLAIMED)
+        if (task.state == TaskState.COMPLETED)
         {
             return true;
         }

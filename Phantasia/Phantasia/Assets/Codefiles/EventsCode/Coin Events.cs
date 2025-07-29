@@ -19,4 +19,13 @@ public class CoinEvents
             onCoinSpent(amount);
         }
     }
+
+    public event Action<int> onCoinAmountChange;
+    public void CoinAmountChange(int amount)
+    {
+        if (onCoinAmountChange != null)
+        {
+            onCoinAmountChange(amount);
+        }
+    }
 }

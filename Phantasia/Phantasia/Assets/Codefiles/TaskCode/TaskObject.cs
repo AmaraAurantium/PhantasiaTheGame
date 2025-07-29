@@ -68,16 +68,10 @@ public class TaskObject
         state = TaskState.COMPLETED;
     }
 
-    //remove task
+    //uncomplete task
     public void uncompletetask()
     {
         state = TaskState.PROGRESS;
-    }
-
-    //change state after rewards are given so that these tasks can be deleted
-    public void claimtask()
-    {
-        state = TaskState.CLAIMED;
     }
 
     //change time 

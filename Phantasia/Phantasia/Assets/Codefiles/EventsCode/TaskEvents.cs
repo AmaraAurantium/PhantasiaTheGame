@@ -3,6 +3,15 @@ using System.Collections.Generic;
 
 public class TaskEvents
 {
+	public event Action onClaimRewards;
+	public void ClaimRewards()
+	{
+		if (onClaimRewards != null)
+		{
+			onClaimRewards();
+		}
+	}
+
 	public event Action<string> onTaskCompleted;
 	public void TaskCompleted(string id)
 	{
@@ -30,15 +39,6 @@ public class TaskEvents
 		}
 	}
 
-	public event Action<string> onTaskClaimed;
-	public void TaskClaimed(string id)
-	{
-		if (onTaskClaimed != null)
-		{
-			onTaskClaimed(id);
-		}
-	}
-
 	public event Action<TaskObject> onTaskStateChanged;
 	public void TaskStateChanged(TaskObject task)
 	{
@@ -57,12 +57,12 @@ public class TaskEvents
 		}
 	}
 
-	public event Action<List<TaskObject>> onTaskListUpdated;
+	public event Action<List<TaskObject>> onTaskListUpdate;
 	public void TaskListUpdate(List<TaskObject> taskList)
 	{
-		if (onTaskListUpdated != null)
+		if (onTaskListUpdate != null)
 		{
-			onTaskListUpdated(taskList);
+			onTaskListUpdate(taskList);
 		}
 	}
 }

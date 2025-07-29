@@ -12,12 +12,21 @@ public class DialogueManager : MonoBehaviour
 
     private bool dialoguePlaying = false;
 
+    private InkExternalFunctions inkExternalFunctions;
+
     private void Awake()
     {
         story = new Story(inkJson.text);
+        inkExternalFunctions = new InkExternalFunctions();
+        inkExternalFunctions.Bind(story);
     }
 
-    private void Start()
+    private void OnDestroy()
+    {
+        inkExternalFunctions.unBind(story);
+    }
+
+    private void OnEnable()
     {
         if (EventsManager.instance == null) return;
         EventsManager.instance.dialogueEvents.onEnterDialogue += EnterDialogue;
@@ -27,7 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         EventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked -= SubmitPressed;
