@@ -8,95 +8,106 @@ using TMPro;
 
 public class TaskButton : MonoBehaviour, ISelectHandler
 {
-    [Header("Components")]
-    [SerializeField] private TextMeshProUGUI titletext;
-    [SerializeField] private TextMeshProUGUI timetext;
-    [SerializeField] private Toggle taskcompletetoggle;
-    public Button button {get; private set;}
-    private UnityAction onSelectAction;
-    private TaskObject designatedTask = null;
+	[Header("Components")]
+	[SerializeField] private TextMeshProUGUI titletext;
+	[SerializeField] private TextMeshProUGUI timetext;
+	[SerializeField] private Toggle taskcompletetoggle;
+	public Button button { get; private set; }
+	private UnityAction onSelectAction;
+	private TaskObject designatedTask = null;
 
-    private void OnEnable()
-    {
-        EventsManager.instance.taskEvents.onTaskStateChanged += TaskStateChanged;
-    }
+	private void OnEnable()
+	{
+		EventsManager.instance.taskEvents.onTaskStateChanged += TaskStateChanged;
+	}
 
-    private void OnDisable()
-    {
-        EventsManager.instance.taskEvents.onTaskStateChanged -= TaskStateChanged;
-    }
+	private void OnDisable()
+	{
+		EventsManager.instance.taskEvents.onTaskStateChanged -= TaskStateChanged;
+	}
 
-    private void TaskStateChanged(TaskObject task)
-    {
-        if(designatedTask == task)
-        {
-            taskcompletetoggle.isOn = checkState(task);
-            if (task.getIsUserTask())
-            {
-                timetext.text = task.getEstimateTimeAsString() + " hr(s)";
-            }
-        }
-    }
+	private void TaskStateChanged(TaskObject task)
+	{
+		if (designatedTask == task)
+		{
+			taskcompletetoggle.isOn = checkState(task);
+			if (task.getIsUserTask())
+			{
+				timetext.text = task.getEstimateTimeAsString() + " hr(s)";
+			}
+		}
+	}
 
-    public void ToggleValueChanged()
-    {
-        if (designatedTask == null)
-        {
-            Debug.LogWarning("Current task is empty");
-            return;
-        }
+	public void ToggleValueChanged()
+	{
+		if (designatedTask == null)
+		{
+			Debug.LogWarning("Current task is empty");
+			return;
+		}
 
-        if (taskcompletetoggle.isOn)
-        {
-            designatedTask.completetask();
-            EventsManager.instance.taskEvents.TaskCompleted(designatedTask.title);
-            EventsManager.instance.taskEvents.TaskStateChanged(designatedTask);
-            //Debug.Log("taskbutton log: " + designatedTask.title + "is now " + designatedTask.state);
-        }
-        else
-        {
-            designatedTask.uncompletetask();
-            EventsManager.instance.taskEvents.TaskUncompleted(designatedTask.title);
-            EventsManager.instance.taskEvents.TaskStateChanged(designatedTask);
-            //Debug.Log("taskbutton log: " + designatedTask.title + "is now " + designatedTask.state);
-        }
-    }
+		if (taskcompletetoggle.isOn)
+		{
+			designatedTask.completetask();
+			EventsManager.instance.taskEvents.TaskCompleted(designatedTask.title);
+			EventsManager.instance.taskEvents.TaskStateChanged(designatedTask);
+			//Debug.Log("taskbutton log: " + designatedTask.title + "is now " + designatedTask.state);
+		}
+		else
+		{
+			designatedTask.uncompletetask();
+			EventsManager.instance.taskEvents.TaskUncompleted(designatedTask.title);
+			EventsManager.instance.taskEvents.TaskStateChanged(designatedTask);
+			//Debug.Log("taskbutton log: " + designatedTask.title + "is now " + designatedTask.state);
+		}
+	}
 
-    //since this may be diabled when we instanciate it, we would need to manually instantiate everything
-    public void UserInitialize(TaskObject task, UnityAction selectAction)
-    {
-        designatedTask = task;
-        taskcompletetoggle.isOn = checkState(task);
-        this.button = this.GetComponent<Button>();
-        this.titletext.text = task.title;
-        this.timetext.text = task.getEstimateTimeAsString() + " hr(s)";
-        this.onSelectAction = selectAction;
-    }
+	//since this may be diabled when we instanciate it, we would need to manually instantiate everything
+	public void UserInitialize(TaskObject task, UnityAction selectAction)
+	{
+		designatedTask = task;
+		Refresh();
+		this.timetext.text = task.getEstimateTimeAsString() + " hr(s)";
+		SetSelectAction(selectAction);
+	}
 
-    public void SystemInitialize(TaskObject task, UnityAction selectAction)
-    {
-        designatedTask = task;
-        taskcompletetoggle.isOn = checkState(task);
-        this.button = this.GetComponent<Button>();
-        this.titletext.text = task.title;
-        this.timetext.text = "Ara's special! <3";
-        this.onSelectAction = selectAction;
-    }
+	public void SetSelectAction(UnityAction selectAction)
+	{
+		this.onSelectAction = selectAction;
+	}
 
-    public void OnSelect(BaseEventData eventData)
-    {
-        onSelectAction();
-    }
+	public void Refresh()
+	{
+		if (designatedTask != null)
+		{
+			taskcompletetoggle.isOn = checkState(designatedTask);
+			this.button = this.GetComponent<Button>();
+			this.titletext.text = designatedTask.title;
+		}
+	}
 
-    private bool checkState(TaskObject task)
-    {
-        if (task.state == TaskState.COMPLETED)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+	public void SystemInitialize(TaskObject task, UnityAction selectAction)
+	{
+		designatedTask = task;
+		Refresh();
+		this.timetext.text = "Ara's special! <3";
+		SetSelectAction(selectAction);
+	}
+
+	public void OnSelect(BaseEventData eventData)
+	{
+		onSelectAction();
+	}
+
+	private bool checkState(TaskObject task)
+	{
+		if (task.state == TaskState.COMPLETED)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

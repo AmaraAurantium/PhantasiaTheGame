@@ -26,6 +26,8 @@ public class TaskObject
         coin = calculateCoin(time);
         timesCompleted = 0;
         isUserTask = tasktype;
+
+        Debug.Log(name + " task created with " + coin + " coins");
         //system tasks are false, user tasks are true
     }
 
@@ -100,14 +102,10 @@ public class TaskObject
 
     private int calculateCoin(float time)
     {
-        int coin;
-        if (time < 1.0f)
+        int coin = (int)(estimateTime * 10);
+        if (coin < 10)
         {
             coin = 10;
-        }
-        else
-        {
-            coin = (int)(estimateTime * 10);
         }
         return coin;
     }

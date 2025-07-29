@@ -71,13 +71,14 @@ public class TaskManager : MonoBehaviour
             else
             {
 				EventsManager.instance.coinEvents.CoinAdded(task.getvalue());
+				Debug.Log(task.title + " is worth " + task.getvalue() + "coins");
 				if (!task.getIsUserTask())
 				{
 					task.uncompletetask();
 					EventsManager.instance.taskEvents.TaskStateChanged(task);
 					task.addoccurance();
 					newtaskList.Add(task);
-					Debug.Log(task.title + " is added to newtasklist in state: " + task.state);
+					//Debug.Log(task.title + " is added to newtasklist in state: " + task.state);
 				}
 			}
 		}

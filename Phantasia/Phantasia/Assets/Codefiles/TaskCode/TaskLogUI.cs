@@ -31,6 +31,8 @@ public class TaskLogUI : MonoBehaviour
 		}
 		EventsManager.instance.taskEvents.onTaskStateChanged += TaskStateChanged;
 		EventsManager.instance.taskEvents.onTaskListUpdate += TaskListUpdate;
+
+		refreshScrollingList();
 	}
 
 	private void OnDisable()
@@ -40,7 +42,7 @@ public class TaskLogUI : MonoBehaviour
 	}
 
 	private void TaskListUpdate(List<TaskObject> taskList)
-    {
+	{
 		refreshScrollingList();
 	}
 
@@ -56,6 +58,7 @@ public class TaskLogUI : MonoBehaviour
 
 	private void refreshScrollingList()
 	{
+		taskScrollingList.CleanTaskList();
 		foreach (var taskInfo in TaskManager.instance.taskList)
 		{
 			TaskButton taskButton = taskScrollingList.CreateButtonIfNotExists(taskInfo, () =>
@@ -66,8 +69,12 @@ public class TaskLogUI : MonoBehaviour
 			if (firstSelectedButton == null)
 			{
 				firstSelectedButton = taskButton.button;
-				firstSelectedButton.Select();
 			}
+		}
+
+		if (firstSelectedButton != null)
+		{
+			firstSelectedButton.Select();
 		}
 	}
 
@@ -138,10 +145,10 @@ public class TaskLogUI : MonoBehaviour
 	}
 
 	public void timeContentChanged()
-    {
+	{
 		string trimmedText = taskTime.text;
-		if(taskTime.text.EndsWith(" hr(s)"))
-        {
+		if (taskTime.text.EndsWith(" hr(s)"))
+		{
 			trimmedText = trimmedText.Substring(0, trimmedText.Length - 6);
 			//Debug.Log("trimmed text: " + trimmedText);
 		}

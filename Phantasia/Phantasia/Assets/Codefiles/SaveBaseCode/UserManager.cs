@@ -5,8 +5,21 @@ using UnityEngine;
 public class UserManager : MonoBehaviour
 {
     [SerializeField] public int coins = 0;
+    private static UserManager _instance = null;
 
-
+    public static UserManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("UserManager");
+                _instance = go.AddComponent<UserManager>();
+                DontDestroyOnLoad(go);
+            }
+            return _instance;
+        }
+    }
     private void Start()
     {
         EventsManager.instance.coinEvents.CoinAmountChange(coins);
@@ -35,5 +48,10 @@ public class UserManager : MonoBehaviour
     {
         coins -= amount;
         EventsManager.instance.coinEvents.CoinAmountChange(coins);
+    }
+
+    public int getCoinCount()
+    {
+        return coins;
     }
 }

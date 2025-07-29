@@ -11,6 +11,15 @@ public class TaskScrollingList : MonoBehaviour
 
     private Dictionary<string, TaskButton> idToButtonMap = new Dictionary<string, TaskButton>();
 
+    public void CleanTaskList()
+    {
+        foreach (var taskButtonInfo in idToButtonMap)
+        {
+            Destroy(taskButtonInfo.Value.gameObject);
+        }
+
+        idToButtonMap = new Dictionary<string, TaskButton>();
+    }
     public TaskButton CreateButtonIfNotExists(TaskObject task, UnityAction selectAction)
     {
         TaskButton taskButton = null;
@@ -22,6 +31,8 @@ public class TaskScrollingList : MonoBehaviour
         else
         {
             taskButton = idToButtonMap[task.title];
+            taskButton.Refresh();
+            taskButton.SetSelectAction(selectAction);
         }
         return taskButton;
     }

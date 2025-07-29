@@ -8,8 +8,15 @@ public class ShopUI : MonoBehaviour
 {
 	[Header("Components")]
 	[SerializeField] private TextMeshProUGUI coinCount;
+
+    void Start()
+    {
+        CoinRefresh();
+    }
+
     private void OnEnable()
     {
+        CoinRefresh();
         EventsManager.instance.coinEvents.onCoinAmountChange += CoinAmountChange;
     }
 
@@ -20,6 +27,12 @@ public class ShopUI : MonoBehaviour
 
     private void CoinAmountChange(int amount)
     {
-        coinCount.text = amount + "";
+        coinCount.text = UserManager.instance.getCoinCount() + "";
+    }
+
+    public void CoinRefresh()
+    {
+        coinCount.text = UserManager.instance.getCoinCount() + "";
+
     }
 }
