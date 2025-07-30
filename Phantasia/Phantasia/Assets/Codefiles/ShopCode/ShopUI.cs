@@ -15,6 +15,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemCost;
     [SerializeField] private TextMeshProUGUI promptText;
     [SerializeField] private Image itemVisual;
+    [SerializeField] private Button promptButton;
 
     private ShopObject currentSelectedItem = null;
 
@@ -106,6 +107,29 @@ public class ShopUI : MonoBehaviour
         else
         {
             return "Stow Away";
+        }
+    }
+    public void buttonPressed()
+    {
+        if (promptText.text == "Purchase")
+        {
+            if (UserManager.instance.getCoinCount() > currentSelectedItem.getCost())
+            {
+                EventsManager.instance.coinEvents.ItemPurchase(currentSelectedItem);
+                EventsManager.instance.coinEvents.CoinAmountChange(currentSelectedItem.getCost());
+            }
+            else
+            {
+                Debug.Log("not enough money");
+            }
+        }
+        else if (promptText.text == "Gift")
+        {
+            EventsManager.instance.coinEvents.ItemGifted(currentSelectedItem);
+        }
+        else
+        {
+            EventsManager.instance.coinEvents.ItemUngifted(currentSelectedItem);
         }
     }
 }

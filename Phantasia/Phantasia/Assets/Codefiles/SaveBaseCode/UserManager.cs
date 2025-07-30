@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UserManager : MonoBehaviour
 {
-    [SerializeField] public int coins = 0;
+    public int coins;
     private static UserManager _instance = null;
 
     public static UserManager instance
@@ -22,6 +22,7 @@ public class UserManager : MonoBehaviour
     }
     private void Start()
     {
+        //coins = 0;
         EventsManager.instance.coinEvents.CoinAmountChange(coins);
     }
 
