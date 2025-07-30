@@ -55,4 +55,14 @@ public class CoinEvents
             onItemUngifted(item);
         }
     }
+
+    public event Action<ShopObject> onItemStateChange;
+    public void ItemStateChange(ShopObject item)
+    {
+        if (onItemStateChange != null)
+        {
+            onItemStateChange(item);
+        }
+    }
+
 }

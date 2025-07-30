@@ -49,8 +49,8 @@ public class NewTaskUI : MonoBehaviour
 	private void ResetPanel()
 	{
 		contentParent.SetActive(false);
-		taskTitle.text = "New Task Name";
-		taskTime.text = "Estimated time (Unit: Hours)";
+		taskTitle.text = "New Task (Tap to edit)";
+		taskTime.text = "Estimated time in hours (Tap to edit)";
 		taskDescription.text = "Feel free to put in any details regarding your task :3";
 		warning.enabled = false;
 	}

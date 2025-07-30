@@ -10,15 +10,20 @@ public class ShopObject
     public ItemState state { get; private set; }
     [SerializeField] private bool isDeco;
     [SerializeField] private int cost;
+    [SerializeField] private string description;
     [SerializeField] private GameObject[] items;
+    [SerializeField] private Sprite visual;
 
     //constructor
-    public ShopObject(string itemName, bool itemIsDeco , int itemCost)
+    public ShopObject(string itemName, bool itemIsDeco , int itemCost, string itemdescription, GameObject[] itemSubitems, Sprite itemVisual)
     {
         name = itemName;
         state = ItemState.NOT_BOUGHT;
         isDeco = itemIsDeco;
         cost = itemCost;
+        description = itemdescription;
+        items = itemSubitems;
+        visual = itemVisual;
     }
 
     //get methods
@@ -32,10 +37,21 @@ public class ShopObject
         return cost;
     }
 
+    public string getDescription()
+    {
+        return description;
+    }
+
     public GameObject[] getItems()
     {
         return items;
     }
+
+    public Sprite getvisual()
+    {
+        return visual;
+    }
+
 
     //statechange methods
     public void buyItem()
