@@ -27,7 +27,7 @@ public class TaskObject
         timesCompleted = 0;
         isUserTask = tasktype;
 
-        Debug.Log(name + " task created with " + coin + " coins");
+        //Debug.Log(name + " task created with " + coin + " coins");
         //system tasks are false, user tasks are true
     }
 
