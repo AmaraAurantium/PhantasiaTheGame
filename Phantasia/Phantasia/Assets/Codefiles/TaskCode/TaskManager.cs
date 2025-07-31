@@ -74,7 +74,7 @@ public class TaskManager : MonoBehaviour
 				Debug.Log(task.title + " is worth " + task.getvalue() + "coins");
 				if (!task.getIsUserTask())
 				{
-					task.uncompletetask();
+					task.hideTask();
 					EventsManager.instance.taskEvents.TaskStateChanged(task);
 					task.addoccurance();
 					newtaskList.Add(task);

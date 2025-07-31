@@ -27,7 +27,10 @@ public class TaskScrollingList : MonoBehaviour
         //only create the button if we havent seen this id before
         if (!idToButtonMap.ContainsKey(task.title))
         {
-            taskButton = InstantiateTaskButton(task, selectAction);
+            if(task.state == TaskState.PROGRESS || task.state == TaskState.COMPLETED)
+            {
+                taskButton = InstantiateTaskButton(task, selectAction);
+            }
         }
         else
         {

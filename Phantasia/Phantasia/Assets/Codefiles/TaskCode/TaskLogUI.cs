@@ -65,6 +65,7 @@ public class TaskLogUI : MonoBehaviour
 			{
 				setTaskLogInfo(taskInfo);
 			});
+			//hide hidden system tasks
 			// initialize the first selected button if not already so that it's always the top button
 			if (firstSelectedButton == null)
 			{

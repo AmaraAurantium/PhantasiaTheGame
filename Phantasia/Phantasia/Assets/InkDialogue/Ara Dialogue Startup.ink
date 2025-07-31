@@ -1,5 +1,7 @@
 EXTERNAL ClaimCompleted()
-->Bed
+//EXTERNAL StartDay()
+//EXTERNAL NightMode()
+
 === Intro ===
 Oh... oh hi! I was wondering when you’d find me here.
 Any longer and I would’ve started making friends with fungi...
@@ -20,6 +22,20 @@ Anyway, now that you’re here… can I ask you a few things?
     // Open up UI
     Perfect! I’ll do my best to match your pace!
     -> END
+
+=== Room ===
+Good Morning!
+Did you sleep well?
+Come to think of it, I had a crazy dream last night.
+But now that I’m awake, I don’t remember a single thing...
+Maybe I can pick it up again if I sleep early tonight...
+Well, that’s something for future me to worry about!
+But anyway!
+You’ve got a big day ahead, huh?
+Just remember, the day is yours to command.
+So--no pressure, and go show the world your very best!
+//~StartDay()
+-> END
 
 === Desk ===
 Hello again!
@@ -42,18 +58,13 @@ How's your day been so far?
     -> END
     
 === Bed ===
-Why, good evening my friend!
+Good evening my friend!
 Going to rest soon?
 *[Ready to wrap up!]
     ~ClaimCompleted()
     You've done a lot today! 
-    Give yourself a huge pat on the back and get some well deserved sleep!
-    I'll see you in the morning!
-    -> END
-*[Good night, Ara]
-    Sweet Dreams! 
-    Let go of all your worries for now, and get a hearty sleep
-    I'll see you in the morning!
+    Good night! I'll see you in the morning!
+    //~NightMode()
     -> END
 *[Still gotta keep working...]
     Alright then! 
