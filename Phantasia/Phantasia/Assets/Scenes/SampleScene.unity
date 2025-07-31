@@ -3568,31 +3568,37 @@ MonoBehaviour:
     description: Get a sip of water! (And if you want to, take a picture of your
       cup/mug/bottle and upload it on X under #aurantiYUM)
     estimateTime: 0
+    coin: 10
   - title: Touch Grass :3
     isUserTask: 0
     description: 'I challenge you to find a pretty leaf! It has to be prettier than
       the two I got on my head! #aurantiYUM '
     estimateTime: 0
+    coin: 10
   - title: Cloudy Day
     isUserTask: 0
     description: Imagine if you could bite into a cloud sized cotton-candy...YUMMMM...Have
       you seen a funny looking cloud lately? I wanna see! #aurantiYUM
     estimateTime: 0
+    coin: 10
   - title: Mogu Mogu
     isUserTask: 0
     description: Good food always brightens up a bad day! Make sure to have a hearty
       meal today! #aurantiYUM
     estimateTime: 0
+    coin: 10
   - title: Treasure?
     isUserTask: 0
     description: pstttt! I've heard that top shelves often contain rare treasures
       from the past! Check out your top shelf!
     estimateTime: 0
+    coin: 10
   - title: Doodle /(._._)
     isUserTask: 0
     description: Hey! Can I ask you something? If it's alright with you, can you
       draw me real quick? I'll pose for you! #aurantiYUM
     estimateTime: 0
+    coin: 10
 --- !u!1 &461946067
 GameObject:
   m_ObjectHideFlags: 0

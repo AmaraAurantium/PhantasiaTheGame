@@ -45,7 +45,7 @@ public class ShopManager : MonoBehaviour
 	private void ItemPurchase(ShopObject item)
     {
 		item.buyItem();
-    }
+	}
 
 	private void ItemGifted(ShopObject item)
 	{

@@ -61,11 +61,15 @@ public class TaskLogUI : MonoBehaviour
 		taskScrollingList.CleanTaskList();
 		foreach (var taskInfo in TaskManager.instance.taskList)
 		{
+			if (taskInfo.state == TaskState.HIDDEN)
+			{
+				continue;
+			}
+
 			TaskButton taskButton = taskScrollingList.CreateButtonIfNotExists(taskInfo, () =>
 			{
 				setTaskLogInfo(taskInfo);
 			});
-			//hide hidden system tasks
 			// initialize the first selected button if not already so that it's always the top button
 			if (firstSelectedButton == null)
 			{

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum TaskState
 {
-    HIDDEN,
-    PROGRESS,
-    COMPLETED
+	PROGRESS,
+	COMPLETED,
+	HIDDEN,
 }

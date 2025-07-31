@@ -113,7 +113,7 @@ public class ShopUI : MonoBehaviour
     {
         if (promptText.text == "Purchase")
         {
-            if (UserManager.instance.getCoinCount() > currentSelectedItem.getCost())
+            if (UserManager.instance.getCoinCount() >= currentSelectedItem.getCost())
             {
                 EventsManager.instance.coinEvents.ItemPurchase(currentSelectedItem);
                 EventsManager.instance.coinEvents.CoinAmountChange(currentSelectedItem.getCost());
@@ -131,5 +131,9 @@ public class ShopUI : MonoBehaviour
         {
             EventsManager.instance.coinEvents.ItemUngifted(currentSelectedItem);
         }
+
+        CoinRefresh();
+        refreshScrollingList();
+        promptText.text = determinePromptText(currentSelectedItem);
     }
 }
