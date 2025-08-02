@@ -5,21 +5,6 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] public List<ShopObject> itemList = new List<ShopObject>();
-	//list of materials
-	[SerializeField] private Material Room1;
-	[SerializeField] private Material Room1Dark;
-	[SerializeField] private Material Room2;
-	[SerializeField] private Material Room2Dark;
-	[SerializeField] private Material Room3;
-	[SerializeField] private Material Room3Dark;
-	[SerializeField] private Material Room4;
-	[SerializeField] private Material Room4Dark;
-	[SerializeField] private Material Room5;
-	[SerializeField] private Material Room5Dark;
-	[SerializeField] private Material Floor;
-	[SerializeField] private Material FloorDark;
-	[SerializeField] private Material Wall;
-	[SerializeField] private Material WallDark;
 
 	public static ShopManager instance = null;
 
@@ -80,34 +65,7 @@ public class ShopManager : MonoBehaviour
 			foreach (GameObject furnature in item.getItems())
 			{
 				Renderer renderer = furnature.GetComponent<Renderer>();
-				if (renderer.material == Room1Dark)
-				{
-					renderer.material = Room1;
-				}
-				else if (renderer.material == Room2Dark)
-				{
-					renderer.material = Room2;
-				}
-				else if (renderer.material == Room3Dark)
-				{
-					renderer.material = Room3;
-				}
-				else if (renderer.material == Room4Dark)
-				{
-					renderer.material = Room4;
-				}
-				else if (renderer.material == Room5Dark)
-				{
-					renderer.material = Room5;
-				}
-				else if (renderer.material == FloorDark)
-				{
-					renderer.material = Floor;
-				}
-				else
-				{
-					renderer.material = Wall;
-				}
+				renderer.material = item.getColorMat();
 			}
 		}
 		else
@@ -115,34 +73,7 @@ public class ShopManager : MonoBehaviour
 			foreach (GameObject furnature in item.getItems())
 			{
 				Renderer renderer = furnature.GetComponent<Renderer>();
-				if (renderer.material == Room1)
-				{
-					renderer.material = Room1Dark;
-				}
-				else if (renderer.material == Room2)
-				{
-					renderer.material = Room2Dark;
-				}
-				else if (renderer.material == Room3)
-				{
-					renderer.material = Room3Dark;
-				}
-				else if (renderer.material == Room4)
-				{
-					renderer.material = Room4Dark;
-				}
-				else if (renderer.material == Room5)
-				{
-					renderer.material = Room5Dark;
-				}
-				else if (renderer.material == Floor)
-				{
-					renderer.material = FloorDark;
-				}
-				else
-				{
-					renderer.material = WallDark;
-				}
+				renderer.material = item.getDarkMat();
 			}
 		}
     }

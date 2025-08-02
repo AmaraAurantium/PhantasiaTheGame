@@ -13,9 +13,11 @@ public class ShopObject
     [SerializeField] private string description;
     [SerializeField] private GameObject[] items;
     [SerializeField] private Sprite visual;
+    [SerializeField] private Material colorMat;
+    [SerializeField] private Material darkMat;
 
     //constructor
-    public ShopObject(string itemName, bool itemIsDeco , int itemCost, string itemdescription, GameObject[] itemSubitems, Sprite itemVisual)
+    public ShopObject(string itemName, bool itemIsDeco , int itemCost, string itemdescription, GameObject[] itemSubitems, Sprite itemVisual, Material def, Material change)
     {
         name = itemName;
         state = ItemState.NOT_BOUGHT;
@@ -24,6 +26,8 @@ public class ShopObject
         description = itemdescription;
         items = itemSubitems;
         visual = itemVisual;
+        colorMat = def;
+        darkMat = change;
     }
 
     //get methods
@@ -52,6 +56,15 @@ public class ShopObject
         return visual;
     }
 
+    public Material getColorMat()
+    {
+        return colorMat;
+    }
+
+    public Material getDarkMat()
+    {
+        return darkMat;
+    }
 
     //statechange methods
     public void buyItem()
