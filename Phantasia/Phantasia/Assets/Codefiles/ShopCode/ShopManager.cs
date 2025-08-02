@@ -62,16 +62,26 @@ public class ShopManager : MonoBehaviour
     {
 		if (colorlessToColor)
 		{
+			bool itemIsDeco = item.getIsDeco();
 			foreach (GameObject furnature in item.getItems())
 			{
+                if (itemIsDeco)
+                {
+					furnature.SetActive(true);
+                }
 				Renderer renderer = furnature.GetComponent<Renderer>();
 				renderer.material = item.getColorMat();
 			}
 		}
 		else
 		{
+			bool itemIsDeco = item.getIsDeco();
 			foreach (GameObject furnature in item.getItems())
 			{
+				if (itemIsDeco)
+				{
+					furnature.SetActive(false);
+				}
 				Renderer renderer = furnature.GetComponent<Renderer>();
 				renderer.material = item.getDarkMat();
 			}
