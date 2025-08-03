@@ -2,11 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : MonoBehaviour, IDataPersistance 
 {
     [SerializeField] public List<ShopObject> itemList = new List<ShopObject>();
 
 	public static ShopManager instance = null;
+
+	public void loadData(SaveData data)
+	{
+		if (data.shopList != null)
+        {
+			this.itemList = data.shopList;
+			foreach (ShopObject item in itemList)
+            {
+				if (item.state == ItemState.GIFTED)
+                {
+					changeLook(item, true);
+				}
+                else
+                {
+					changeLook(item, false);
+				}
+            }
+        }
+	}
+
+	public void saveData(ref SaveData data)
+	{
+		data.shopList = this.itemList;
+	}
 
 	private void Awake()
 	{
@@ -30,6 +54,7 @@ public class ShopManager : MonoBehaviour
 	private void ItemPurchase(ShopObject item)
     {
 		item.buyItem();
+		EventsManager.instance.coinEvents.CoinSpent(item.getCost());
 	}
 
 	private void ItemGifted(ShopObject item)

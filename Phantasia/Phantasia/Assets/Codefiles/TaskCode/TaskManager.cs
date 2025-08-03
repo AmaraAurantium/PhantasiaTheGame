@@ -6,11 +6,24 @@ using System.Threading.Tasks.Sources;
 using UnityEngine;
 
 
-public class TaskManager : MonoBehaviour
+public class TaskManager : MonoBehaviour, IDataPersistance 
 {
 	[SerializeField] public List<TaskObject> taskList = new List<TaskObject>();
 
 	public static TaskManager instance = null;
+
+	public void loadData(SaveData data)
+	{
+		if (data.taskList != null)
+		{
+			this.taskList = data.taskList;
+		}
+	}
+
+	public void saveData(ref SaveData data)
+	{
+		data.taskList = this.taskList;
+	}
 
 	private void Awake()
 	{

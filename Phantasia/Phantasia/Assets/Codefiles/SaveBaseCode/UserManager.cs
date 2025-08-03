@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserManager : MonoBehaviour
+public class UserManager : MonoBehaviour, IDataPersistance
 {
     public int coins;
     private static UserManager _instance = null;
@@ -20,6 +20,17 @@ public class UserManager : MonoBehaviour
             return _instance;
         }
     }
+
+    public void loadData(SaveData data)
+    {
+        this.coins = data.coinCount;
+    }
+
+    public void saveData(ref SaveData data)
+    {
+        data.coinCount = this.coins;
+    }
+
     private void Start()
     {
         //coins = 0;

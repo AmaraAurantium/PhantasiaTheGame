@@ -11,8 +11,8 @@ public class TaskObject
     [SerializeField] private bool isUserTask;
     [SerializeField] private string description;
     [SerializeField] private float estimateTime;
-    private int timesCompleted;//only applicable for system tasks
     [SerializeField] private int coin;
+    private int timesCompleted;//only applicable for system tasks
 
     //constructor
     public TaskObject(string name, float time, string descrip, bool tasktype)
