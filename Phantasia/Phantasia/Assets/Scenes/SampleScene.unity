@@ -315,7 +315,7 @@ MonoBehaviour:
   - name: Plushie Set B
     isDeco: 1
     cost: 50
-    description: A must have for a comfy room.
+    description: A must-have for a comfy room.
     items:
     - {fileID: 2059342695}
     - {fileID: 180238378}
