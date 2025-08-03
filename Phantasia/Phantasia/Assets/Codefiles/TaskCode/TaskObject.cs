@@ -8,10 +8,10 @@ public class TaskObject
 {
     public string title;
     public TaskState state { get; private set; } = TaskState.PROGRESS;
-    [SerializeField] private bool isUserTask;
-    [SerializeField] private string description;
-    [SerializeField] private float estimateTime;
-    [SerializeField] private int coin;
+    private bool isUserTask;
+    private string description;
+    private float estimateTime;
+    private int coin;
     private int timesCompleted;//only applicable for system tasks
 
     //constructor
@@ -28,7 +28,7 @@ public class TaskObject
         isUserTask = tasktype;
         if (tasktype == false)
         {
-            state = TaskState.HIDDEN;
+            //state = TaskState.HIDDEN;
         }
 
         //Debug.Log(name + " task created with " + coin + " coins");

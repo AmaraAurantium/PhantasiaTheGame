@@ -90,7 +90,7 @@ public class ShopUI : MonoBehaviour
         itemName.text = item.name;
         itemDescription.text = item.getDescription();
         itemCost.text = item.getCost() + "";
-        itemVisual.sprite = item.getvisual();
+        itemVisual.sprite = ShopManager.instance.visualList[item.getvisual()];
         promptText.text = determinePromptText(item);
     }
 

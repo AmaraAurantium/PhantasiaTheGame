@@ -241,193 +241,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed0e3477dd7340588b2fe87949c6d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - name: Party Balloons
-    isDeco: 1
-    cost: 10
-    description: Balloons. Perfect for celebrating a new friendship, don't you think?
-    items:
-    - {fileID: 1554309193}
-    visual: {fileID: 607760553, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Orange
-    isDeco: 1
-    cost: 25
-    description: An orange shaped decor for your orange friend!
-    items:
-    - {fileID: 1767055246}
-    visual: {fileID: 650434878, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Apple
-    isDeco: 1
-    cost: 25
-    description: The symbol for a healthy habit. Why not get it as a decoration?
-    items:
-    - {fileID: 2058382969}
-    visual: {fileID: 1138224516, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Frame
-    isDeco: 1
-    cost: 40
-    description: Set of three pictures of your beloved friend
-    items:
-    - {fileID: 771909778}
-    - {fileID: 332365562}
-    - {fileID: 300766284}
-    - {fileID: 1615033881}
-    visual: {fileID: 126995485, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Star Deco
-    isDeco: 1
-    cost: 50
-    description: Don't you find the walls a little empty?
-    items:
-    - {fileID: 1643537699}
-    visual: {fileID: 245361899, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 900f3cb01ea654c098a0197b3368777d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7aa8d043619424d75be28fb94910c5a6, type: 2}
-  - name: Computer
-    isDeco: 1
-    cost: 200
-    description: Pwease don't let your friend live in the stone age..? Technology!
-    items:
-    - {fileID: 581580273}
-    - {fileID: 639926419}
-    - {fileID: 247673004}
-    - {fileID: 216346236}
-    visual: {fileID: 1184287506, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 900f3cb01ea654c098a0197b3368777d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7aa8d043619424d75be28fb94910c5a6, type: 2}
-  - name: Plushie Set A
-    isDeco: 1
-    cost: 30
-    description: Plushies to mark your achievements. Great work!
-    items:
-    - {fileID: 871024423}
-    - {fileID: 2070051935}
-    visual: {fileID: -333072410, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 900f3cb01ea654c098a0197b3368777d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7aa8d043619424d75be28fb94910c5a6, type: 2}
-  - name: Plushie Set B
-    isDeco: 1
-    cost: 50
-    description: A must-have for a comfy room.
-    items:
-    - {fileID: 2059342695}
-    - {fileID: 180238378}
-    visual: {fileID: 1801036592, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 900f3cb01ea654c098a0197b3368777d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7aa8d043619424d75be28fb94910c5a6, type: 2}
-  - name: Cup
-    isDeco: 1
-    cost: 30
-    description: Stay hydrated. All of you.
-    items:
-    - {fileID: 525441137}
-    visual: {fileID: -838331269, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: '"Miss Deborah" Birdie'
-    isDeco: 1
-    cost: 170
-    description: '"Bee for the busy"...but a birdie? Why not.'
-    items:
-    - {fileID: 1657099725}
-    visual: {fileID: 1166805720, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Books Set A
-    isDeco: 1
-    cost: 50
-    description: Get Educated, will ya?
-    items:
-    - {fileID: 1417422926}
-    visual: {fileID: 391546848, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 900f3cb01ea654c098a0197b3368777d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7aa8d043619424d75be28fb94910c5a6, type: 2}
-  - name: Books Set B
-    isDeco: 1
-    cost: 50
-    description: 'That shelf looks a little bit empty, don''t you think? '
-    items:
-    - {fileID: 451309600}
-    visual: {fileID: 1715635786, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 462cf84095cc04710b2f0ac97b5f97db, type: 2}
-    darkMat: {fileID: 2100000, guid: 9b9836cea395342a1b43b332ada708ac, type: 2}
-  - name: Paint
-    isDeco: 0
-    cost: 400
-    description: Magic paint. paints all the walls, flooring, shelves, and more!
-    items:
-    - {fileID: 51895525}
-    - {fileID: 348576379}
-    - {fileID: 149895242}
-    - {fileID: 1615033881}
-    - {fileID: 1476020877}
-    visual: {fileID: -1275020138, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 28f56c00ce8334b3296b485f70cefd24, type: 2}
-    darkMat: {fileID: 2100000, guid: 10ec90b2ac1ff48f9a04cae17152bec2, type: 2}
-  - name: Desk & Chair
-    isDeco: 0
-    cost: 100
-    description: Colorful looking working enviroments are a must have for a good
-      study mood!
-    items:
-    - {fileID: 2004943061}
-    - {fileID: 99182525}
-    visual: {fileID: -705117404, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Stairs & Door
-    isDeco: 0
-    cost: 100
-    description: Very important that the stairs and doors don't look like the void.
-    items:
-    - {fileID: 1173801094}
-    - {fileID: 1099928680}
-    - {fileID: 852416591}
-    - {fileID: 204827179}
-    visual: {fileID: -250086738, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: c89d24fd1ede54ca79b29d4783dbd5b0, type: 2}
-    darkMat: {fileID: 2100000, guid: 191e4dc3d65f0483d9c55a1817ec2451, type: 2}
-  - name: Sofa
-    isDeco: 1
-    cost: 200
-    description: Compfy resting spot for the hardworking ppl out there!
-    items:
-    - {fileID: 1715858830}
-    - {fileID: 925881971}
-    - {fileID: 1936155888}
-    visual: {fileID: 1957234763, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: c89d24fd1ede54ca79b29d4783dbd5b0, type: 2}
-    darkMat: {fileID: 2100000, guid: 191e4dc3d65f0483d9c55a1817ec2451, type: 2}
-  - name: Bedside Desk & Carpet
-    isDeco: 0
-    cost: 80
-    description: Colorful and cozy carpets!
-    items:
-    - {fileID: 1464745859}
-    - {fileID: 1771095390}
-    - {fileID: 2047953021}
-    visual: {fileID: 862145237, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
-  - name: Bed
-    isDeco: 0
-    cost: 100
-    description: Need I say more. a mimir
-    items:
-    - {fileID: 344433705}
-    - {fileID: 1267420140}
-    - {fileID: 20650866}
-    - {fileID: 88230726}
-    visual: {fileID: -112235905, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
-    colorMat: {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
-    darkMat: {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
+  itemList: []
+  matList:
+  - {fileID: 2100000, guid: 9efbf259787bc4c6da2b8b4e3868143d, type: 2}
+  - {fileID: 2100000, guid: 900f3cb01ea654c098a0197b3368777d, type: 2}
+  - {fileID: 2100000, guid: c89d24fd1ede54ca79b29d4783dbd5b0, type: 2}
+  - {fileID: 2100000, guid: 462cf84095cc04710b2f0ac97b5f97db, type: 2}
+  - {fileID: 2100000, guid: 28f56c00ce8334b3296b485f70cefd24, type: 2}
+  - {fileID: 2100000, guid: 7e0e9ccd3f33a424591c707ad2a735a0, type: 2}
+  - {fileID: 2100000, guid: 7aa8d043619424d75be28fb94910c5a6, type: 2}
+  - {fileID: 2100000, guid: 191e4dc3d65f0483d9c55a1817ec2451, type: 2}
+  - {fileID: 2100000, guid: 9b9836cea395342a1b43b332ada708ac, type: 2}
+  - {fileID: 2100000, guid: 10ec90b2ac1ff48f9a04cae17152bec2, type: 2}
+  visualList:
+  - {fileID: 607760553, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 650434878, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 1138224516, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 126995485, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 245361899, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 1184287506, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: -333072410, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 1801036592, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: -838331269, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 1166805720, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 391546848, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 1715635786, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: -1275020138, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: -705117404, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: -250086738, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 1957234763, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: 862145237, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  - {fileID: -112235905, guid: 0ac17724cb0c148f0b2e0c1ec8a85afe, type: 3}
+  subitemList:
+  - {fileID: 1554309193}
+  - {fileID: 1767055246}
+  - {fileID: 2058382969}
+  - {fileID: 771909778}
+  - {fileID: 332365562}
+  - {fileID: 300766284}
+  - {fileID: 1615033881}
+  - {fileID: 1643537699}
+  - {fileID: 581580273}
+  - {fileID: 247673004}
+  - {fileID: 216346236}
+  - {fileID: 639926419}
+  - {fileID: 871024423}
+  - {fileID: 2070051935}
+  - {fileID: 2059342695}
+  - {fileID: 180238378}
+  - {fileID: 525441137}
+  - {fileID: 1657099725}
+  - {fileID: 1417422926}
+  - {fileID: 451309600}
+  - {fileID: 51895525}
+  - {fileID: 348576379}
+  - {fileID: 1476020877}
+  - {fileID: 149895242}
+  - {fileID: 1689838860}
+  - {fileID: 99182525}
+  - {fileID: 2004943061}
+  - {fileID: 204827179}
+  - {fileID: 1099928680}
+  - {fileID: 852416591}
+  - {fileID: 1173801094}
+  - {fileID: 1715858830}
+  - {fileID: 925881971}
+  - {fileID: 1936155888}
+  - {fileID: 1464745859}
+  - {fileID: 1771095390}
+  - {fileID: 2047953021}
+  - {fileID: 344433705}
+  - {fileID: 88230726}
+  - {fileID: 20650866}
+  - {fileID: 1267420140}
 --- !u!1 &20650866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2824852582912303379, guid: d803e10bb76fe48aca07d34c4d4bcd90,
@@ -11898,6 +11784,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d803e10bb76fe48aca07d34c4d4bcd90, type: 3}
+--- !u!1 &1689838860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4824514989573870144, guid: d803e10bb76fe48aca07d34c4d4bcd90,
+    type: 3}
+  m_PrefabInstance: {fileID: 1689838859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1705264130
 GameObject:
   m_ObjectHideFlags: 0

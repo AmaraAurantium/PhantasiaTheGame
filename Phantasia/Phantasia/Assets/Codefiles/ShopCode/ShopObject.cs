@@ -8,26 +8,26 @@ public class ShopObject
 {
     public string name;
     public ItemState state { get; private set; }
-    [SerializeField] private bool isDeco;
-    [SerializeField] private int cost;
-    [SerializeField] private string description;
-    [SerializeField] private GameObject[] items;
-    [SerializeField] private Sprite visual;
-    [SerializeField] private Material colorMat;
-    [SerializeField] private Material darkMat;
+    private bool isDeco;
+    private int cost;
+    private string description;
+    private int[] itemsID;
+    private int visualID;
+    private int colorMatID;
+    private int darkMatID;
 
     //constructor
-    public ShopObject(string itemName, bool itemIsDeco , int itemCost, string itemdescription, GameObject[] itemSubitems, Sprite itemVisual, Material def, Material change)
+    public ShopObject(string itemName, bool itemIsDeco , int itemCost, string itemdescription, int[] itemSubitems, int itemVisual, int def, int change)
     {
         name = itemName;
         state = ItemState.NOT_BOUGHT;
         isDeco = itemIsDeco;
         cost = itemCost;
         description = itemdescription;
-        items = itemSubitems;
-        visual = itemVisual;
-        colorMat = def;
-        darkMat = change;
+        itemsID = itemSubitems;
+        visualID = itemVisual;
+        colorMatID = change;
+        darkMatID = def;
     }
 
     //get methods
@@ -46,24 +46,24 @@ public class ShopObject
         return description;
     }
 
-    public GameObject[] getItems()
+    public int[] getItems()
     {
-        return items;
+        return itemsID;
     }
 
-    public Sprite getvisual()
+    public int getvisual()
     {
-        return visual;
+        return visualID;
     }
 
-    public Material getColorMat()
+    public int getColorMat()
     {
-        return colorMat;
+        return colorMatID;
     }
 
-    public Material getDarkMat()
+    public int getDarkMat()
     {
-        return darkMat;
+        return darkMatID;
     }
 
     //statechange methods

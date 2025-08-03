@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour, IDataPersistance 
 {
-    [SerializeField] public List<ShopObject> itemList = new List<ShopObject>();
+    public List<ShopObject> itemList = new List<ShopObject>();
+	[SerializeField] public List<Material> matList = new List<Material>();
+	[SerializeField] public List<Sprite> visualList = new List<Sprite>();
+	[SerializeField] public List<GameObject> subitemList = new List<GameObject>();
 
 	public static ShopManager instance = null;
 
 	public void loadData(SaveData data)
 	{
-		if (data.shopList != null)
-        {
-			this.itemList = data.shopList;
-			foreach (ShopObject item in itemList)
-            {
-				if (item.state == ItemState.GIFTED)
-                {
-					changeLook(item, true);
-				}
-                else
-                {
-					changeLook(item, false);
-				}
-            }
-        }
+		this.itemList = data.shopList;
+
+		foreach (ShopObject item in itemList)
+		{
+			if (item.state == ItemState.GIFTED)
+			{
+				changeLook(item, true);
+			}
+			else
+			{
+				changeLook(item, false);
+			}
+		}
 	}
 
 	public void saveData(ref SaveData data)
@@ -88,27 +89,31 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 		if (colorlessToColor)
 		{
 			bool itemIsDeco = item.getIsDeco();
-			foreach (GameObject furnature in item.getItems())
+			foreach (int furnatureID in item.getItems())
 			{
-                if (itemIsDeco)
+				GameObject furnature = subitemList[furnatureID];
+
+				if (itemIsDeco)
                 {
 					furnature.SetActive(true);
                 }
 				Renderer renderer = furnature.GetComponent<Renderer>();
-				renderer.material = item.getColorMat();
+				renderer.material = matList[item.getColorMat()];
 			}
 		}
 		else
 		{
 			bool itemIsDeco = item.getIsDeco();
-			foreach (GameObject furnature in item.getItems())
+			foreach (int furnatureID in item.getItems())
 			{
+				GameObject furnature = subitemList[furnatureID];
+
 				if (itemIsDeco)
 				{
 					furnature.SetActive(false);
 				}
 				Renderer renderer = furnature.GetComponent<Renderer>();
-				renderer.material = item.getDarkMat();
+				renderer.material = matList[item.getDarkMat()];
 			}
 		}
     }

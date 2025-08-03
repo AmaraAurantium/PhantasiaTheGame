@@ -14,10 +14,7 @@ public class TaskManager : MonoBehaviour, IDataPersistance
 
 	public void loadData(SaveData data)
 	{
-		if (data.taskList != null)
-		{
-			this.taskList = data.taskList;
-		}
+		this.taskList = data.taskList;
 	}
 
 	public void saveData(ref SaveData data)

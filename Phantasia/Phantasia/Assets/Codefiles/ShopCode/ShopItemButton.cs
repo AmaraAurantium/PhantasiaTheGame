@@ -55,7 +55,7 @@ public class ShopItemButton : MonoBehaviour, ISelectHandler
 		if (designatedItem != null)
 		{
 			soldOutOverlay.enabled = checkState(designatedItem);
-			itemSprite.sprite = designatedItem.getvisual();
+			itemSprite.sprite = ShopManager.instance.visualList[designatedItem.getvisual()];
 			this.button = this.GetComponent<Button>();
 		}
 	}
