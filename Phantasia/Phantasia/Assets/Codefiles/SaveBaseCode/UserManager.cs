@@ -20,7 +20,6 @@ public class UserManager : MonoBehaviour, IDataPersistance
 
     private DateTime currentTime = DateTime.Now;
 
-    private static UserManager _instance = null;
 
     public static UserManager instance
     {
@@ -35,6 +34,9 @@ public class UserManager : MonoBehaviour, IDataPersistance
             return _instance;
         }
     }
+
+    private static UserManager _instance = null;
+
 
     public void loadData(SaveData data)
     {
@@ -72,6 +74,11 @@ public class UserManager : MonoBehaviour, IDataPersistance
         updateGameState();
         EventsManager.instance.coinEvents.CoinAmountChange(coins);
         EventsManager.instance.coinEvents.GameStateChange(state);
+    }
+
+    private void Update()
+    {
+        updateGameState();
     }
 
     private void OnEnable()
@@ -132,6 +139,7 @@ public class UserManager : MonoBehaviour, IDataPersistance
     public void startDay()
     {
         startedDay = true;
+
     }
 
     public void resetStartDay()
@@ -146,38 +154,40 @@ public class UserManager : MonoBehaviour, IDataPersistance
 
     public GameState updateGameState()
     {
+        GameState newState = GameState.INTRO;
+
         if(state != GameState.INTRO)
         {
             if (currentTime.Hour < wakeTimeHr || currentTime.Hour > sleepTimeHr)
             {
-                setStateNight();
+                newState = GameState.NIGHT;
             }
             else if(currentTime.Hour > wakeTimeHr && currentTime.Hour < sleepTimeHr)
             {
                 if (startedDay)
                 {
-                    setStateDay();
+                    newState = GameState.DAY;
                 }
                 else
                 {
-                    setStateMorning();
+                    newState = GameState.MORNING;
                 }
             }
             else if(currentTime.Hour == wakeTimeHr)
             {
                 if (currentTime.Minute < wakeTimeMin)
                 {
-                    setStateNight();
+                    newState = GameState.NIGHT;
                 }
                 else
                 {
                     if (startedDay)
                     {
-                        setStateDay();
+                        newState = GameState.DAY;
                     }
                     else
                     {
-                        setStateMorning();
+                        newState = GameState.MORNING;
                     }
                 }
             }
@@ -187,19 +197,38 @@ public class UserManager : MonoBehaviour, IDataPersistance
                 {
                     if (startedDay)
                     {
-                        setStateDay();
+                        newState = GameState.DAY;
                     }
                     else
                     {
-                        setStateMorning();
+                        newState = GameState.MORNING;
                     }
                 }
                 else
                 {
-                    setStateNight();
+                    newState = GameState.NIGHT;
                 }
             }
         }
+
+        if(state != newState)
+        {
+            if (newState == GameState.MORNING)
+            {
+                setStateMorning();
+            }
+            else if (newState == GameState.DAY)
+            {
+                setStateDay();
+            }
+            else if (newState == GameState.NIGHT)
+            {
+                setStateNight();
+            }
+
+            EventsManager.instance.coinEvents.GameStateChange(newState);
+        }
+
         return state;
     }
 }

@@ -28,7 +28,7 @@ public class TaskObject
         isUserTask = tasktype;
         if (tasktype == false)
         {
-            //state = TaskState.HIDDEN;
+            state = TaskState.HIDDEN;
         }
 
         //Debug.Log(name + " task created with " + coin + " coins");

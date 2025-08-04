@@ -8,6 +8,7 @@ public class SaveData
     public int coinCount;
     public GameState gameState;
     public bool startedDay;
+    public int randomSystemTaskID;
     public List<TaskObject> taskList;
     public List<ShopObject> shopList;
 

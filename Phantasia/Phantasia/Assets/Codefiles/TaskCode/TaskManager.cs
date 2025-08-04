@@ -9,17 +9,20 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour, IDataPersistance 
 {
 	[SerializeField] public List<TaskObject> taskList = new List<TaskObject>();
+	int randomSystemTaskID;
 
 	public static TaskManager instance = null;
 
 	public void loadData(SaveData data)
 	{
 		this.taskList = data.taskList;
+		this.randomSystemTaskID = data.randomSystemTaskID;
 	}
 
 	public void saveData(ref SaveData data)
 	{
 		data.taskList = this.taskList;
+		data.randomSystemTaskID = this.randomSystemTaskID;
 	}
 
 	private void Awake()
@@ -33,6 +36,7 @@ public class TaskManager : MonoBehaviour, IDataPersistance
 		EventsManager.instance.taskEvents.onTaskCompleted += TaskCompleted;
 		EventsManager.instance.taskEvents.onTaskUncompleted += TaskUncompleted;
 		EventsManager.instance.taskEvents.onClaimRewards += ClaimCompleted;
+		EventsManager.instance.taskEvents.onSetSystemTask += SetRandomSystemTask;
 	}
 
 	private void OnDisable()
@@ -41,6 +45,7 @@ public class TaskManager : MonoBehaviour, IDataPersistance
 		EventsManager.instance.taskEvents.onTaskCompleted -= TaskCompleted;
 		EventsManager.instance.taskEvents.onTaskUncompleted -= TaskUncompleted;
 		EventsManager.instance.taskEvents.onClaimRewards -= ClaimCompleted;
+		EventsManager.instance.taskEvents.onSetSystemTask -= SetRandomSystemTask;
 	}
 
 	private void TaskHidden(string id)
@@ -88,14 +93,21 @@ public class TaskManager : MonoBehaviour, IDataPersistance
 					EventsManager.instance.taskEvents.TaskStateChanged(task);
 					task.addoccurance();
 					newtaskList.Add(task);
-					//Debug.Log(task.title + " is added to newtasklist in state: " + task.state);
+					Debug.Log(task.title + " is added to newtasklist in state: " + task.state);
 				}
 			}
 		}
 		taskList = newtaskList;
 		EventsManager.instance.taskEvents.TaskListUpdate(taskList);
+		UserManager.instance.resetStartDay();
 	}
-
+	public void SetRandomSystemTask()
+    {
+		System.Random rnd = new System.Random();
+		randomSystemTaskID = rnd.Next(6);
+		TaskObject DailySystemTask = taskList[randomSystemTaskID];
+		DailySystemTask.uncompletetask();
+	}
 	private TaskObject GetTaskByID(string id)
 	{
 		foreach (var task in taskList)

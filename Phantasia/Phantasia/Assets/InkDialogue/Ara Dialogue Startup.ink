@@ -9,7 +9,7 @@ VAR GameState = ""
 {GameState :
     -"INTRO": -> introDialogue
     -"MORNING": -> morningDialogue
-    -else: -> END
+    -else: ->  morningDialogue
 }
 
 = introDialogue

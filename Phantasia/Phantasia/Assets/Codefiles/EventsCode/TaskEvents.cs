@@ -65,4 +65,13 @@ public class TaskEvents
 			onTaskListUpdate(taskList);
 		}
 	}
+
+	public event Action onSetSystemTask;
+	public void SetSystemTask()
+	{
+		if (onSetSystemTask != null)
+		{
+			onSetSystemTask();
+		}
+	}
 }

@@ -30,6 +30,7 @@ public class InkExternalFunctions
     {
         UserManager.instance.startDay();
         UserManager.instance.setStateDay();
+        EventsManager.instance.taskEvents.SetSystemTask();
         EventsManager.instance.coinEvents.GameStateChange(GameState.DAY);
     }
 
@@ -42,6 +43,6 @@ public class InkExternalFunctions
 
     private void OpenPrefrences()
     {
-        UserManager.instance.openPrefrences();
+        //UserManager.instance.openPrefrences();
     }
 }
