@@ -65,4 +65,12 @@ public class CoinEvents
         }
     }
 
+    public event Action<GameState> onGameStateChange;
+    public void GameStateChange(GameState state)
+    {
+        if (onGameStateChange != null)
+        {
+            onGameStateChange(state);
+        }
+    }
 }

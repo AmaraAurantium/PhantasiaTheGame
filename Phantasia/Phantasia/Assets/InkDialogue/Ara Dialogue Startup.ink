@@ -1,8 +1,18 @@
 EXTERNAL ClaimCompleted()
-//EXTERNAL StartDay()
+EXTERNAL OpenPrefrences()
+EXTERNAL StartDay()
+EXTERNAL StartGame()
 //EXTERNAL NightMode()
+VAR GameState = ""
 
-=== Intro ===
+=== Room ===
+{GameState :
+    -"INTRO": -> introDialogue
+    -"MORNING": -> morningDialogue
+    -else: -> END
+}
+
+= introDialogue
 Oh... oh hi! I was wondering when you’d find me here.
 Any longer and I would’ve started making friends with fungi...
 But now you’re here! And I’m so glad!
@@ -19,11 +29,12 @@ I-I promise I won’t take up too much space!
 Anyway, now that you’re here… can I ask you a few things?
 * [Of course.]
     We can do a questionnaire! It’s easier to keep record that way.
-    // Open up UI
-    Perfect! I’ll do my best to match your pace!
-    -> END
+    ~OpenPrefrences()
+-Perfect! I’ll do my best to match your pace!
+~StartGame()
+-> END
 
-=== Room ===
+= morningDialogue
 Good Morning!
 Did you sleep well?
 Come to think of it, I had a crazy dream last night.
@@ -34,7 +45,7 @@ But anyway!
 You’ve got a big day ahead, huh?
 Just remember, the day is yours to command.
 So--no pressure, and go show the world your very best!
-//~StartDay()
+~StartDay()
 -> END
 
 === Desk ===

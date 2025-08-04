@@ -7,13 +7,31 @@ public class SaveData
 {
     public int coinCount;
     public GameState gameState;
+    public bool startedDay;
     public List<TaskObject> taskList;
     public List<ShopObject> shopList;
+
+    public string username;
+
+    public int wakeTimeHr;
+    public int wakeTimeMin;
+    public int sleepTimeHr;
+    public int sleepTimeMin;
 
     public SaveData()
     {
         this.coinCount = 0;
         this.gameState = GameState.INTRO;
+        this.startedDay = false;
+
+        this.username = "my friend";
+
+        this.wakeTimeHr = 06;
+        this.wakeTimeMin = 00;
+        this.sleepTimeHr = 22;
+        this.sleepTimeMin = 00;
+
+
         this.taskList = new List<TaskObject>
         {
             new TaskObject("Stay Hydrated!", 0f, "Get a sip of water! (And if you want to, take a picture of your cup/mug/bottle and upload it on X under #aurantiYUM)", false),
