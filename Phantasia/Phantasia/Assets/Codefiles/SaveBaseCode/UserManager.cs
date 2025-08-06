@@ -20,6 +20,7 @@ public class UserManager : MonoBehaviour, IDataPersistance
 
     private DateTime currentTime = DateTime.Now;
 
+    private static UserManager _instance = null;
 
     public static UserManager instance
     {
@@ -35,8 +36,10 @@ public class UserManager : MonoBehaviour, IDataPersistance
         }
     }
 
-    private static UserManager _instance = null;
-
+    void Awake()
+    {
+        _instance = null;
+    }
 
     public void loadData(SaveData data)
     {

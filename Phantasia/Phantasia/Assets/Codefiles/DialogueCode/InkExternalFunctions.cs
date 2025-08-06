@@ -43,6 +43,6 @@ public class InkExternalFunctions
 
     private void OpenPrefrences()
     {
-        //UserManager.instance.openPrefrences();
+        UserManager.instance.openPrefrences();
     }
 }
