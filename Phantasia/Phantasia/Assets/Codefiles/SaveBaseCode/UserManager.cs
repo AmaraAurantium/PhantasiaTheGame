@@ -38,7 +38,7 @@ public class UserManager : MonoBehaviour, IDataPersistance
 
     void Awake()
     {
-        _instance = null;
+        _instance = this;
     }
 
     public void loadData(SaveData data)
