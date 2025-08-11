@@ -79,7 +79,7 @@ public class TaskManager : MonoBehaviour, IDataPersistance
 		List<TaskObject> newtaskList = new List<TaskObject>();
 		foreach (var task in taskList)
 		{
-			if (task.state == TaskState.HIDDEN || task.state == TaskState.PROGRESS)
+			if (task.GetState() == TaskState.HIDDEN || task.GetState() == TaskState.PROGRESS)
             {
 				newtaskList.Add(task);
 			}
@@ -93,7 +93,7 @@ public class TaskManager : MonoBehaviour, IDataPersistance
 					EventsManager.instance.taskEvents.TaskStateChanged(task);
 					task.addoccurance();
 					newtaskList.Add(task);
-					Debug.Log(task.title + " is added to newtasklist in state: " + task.state);
+					Debug.Log(task.title + " is added to newtasklist in state: " + task.GetState());
 				}
 			}
 		}

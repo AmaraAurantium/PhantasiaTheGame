@@ -101,7 +101,7 @@ public class TaskButton : MonoBehaviour, ISelectHandler
 
 	private bool checkState(TaskObject task)
 	{
-		if (task.state == TaskState.COMPLETED)
+		if (task.GetState() == TaskState.COMPLETED)
 		{
 			return true;
 		}

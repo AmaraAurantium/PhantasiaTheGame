@@ -25,6 +25,19 @@ public class PrefrencesUI : MonoBehaviour
 		ResetPanel();
 	}
 
+	public void OnShow()
+	{
+		// bind event delegates
+		// initial UI data
+		EventsManager.instance.araInteraction.ShouldAcceptInput = false;
+	}
+
+	public void OnHide()
+	{
+		// unbind events delegate
+		EventsManager.instance.araInteraction.ShouldAcceptInput = true;
+	}
+
 	public void confirmPrefrences()
 	{
 		string username = usernameINP.text;
@@ -39,7 +52,7 @@ public class PrefrencesUI : MonoBehaviour
 			warningCP.SetActive(true);
 		}
 		else if (wakeTimeHr > 23 || wakeTimeMin > 59 || sleepTimeHr > 23 || sleepTimeMin > 59)
-        {
+		{
 			warningText.text = "Correct me if I'm wrong, but I'm pretty sure that's not a valid time";
 			warningCP.SetActive(true);
 		}
@@ -53,6 +66,7 @@ public class PrefrencesUI : MonoBehaviour
 
 	private void ResetPanel()
 	{
+		EventsManager.instance.araInteraction.ShouldAcceptInput = true;
 		contentParent.SetActive(false);
 
 		usernameINP.text = "";

@@ -153,19 +153,20 @@ public class UserManager : MonoBehaviour, IDataPersistance
     public void openPrefrences()
     {
         PrefrencesUIPanel.SetActive(true);
+        PrefrencesUIPanel.GetComponentInParent<PrefrencesUI>().OnShow(); // BaseUIClass -> OnHide/OnShow
     }
 
     public GameState updateGameState()
     {
         GameState newState = GameState.INTRO;
 
-        if(state != GameState.INTRO)
+        if (state != GameState.INTRO)
         {
             if (currentTime.Hour < wakeTimeHr || currentTime.Hour > sleepTimeHr)
             {
                 newState = GameState.NIGHT;
             }
-            else if(currentTime.Hour > wakeTimeHr && currentTime.Hour < sleepTimeHr)
+            else if (currentTime.Hour > wakeTimeHr && currentTime.Hour < sleepTimeHr)
             {
                 if (startedDay)
                 {
@@ -176,7 +177,7 @@ public class UserManager : MonoBehaviour, IDataPersistance
                     newState = GameState.MORNING;
                 }
             }
-            else if(currentTime.Hour == wakeTimeHr)
+            else if (currentTime.Hour == wakeTimeHr)
             {
                 if (currentTime.Minute < wakeTimeMin)
                 {
@@ -214,7 +215,7 @@ public class UserManager : MonoBehaviour, IDataPersistance
             }
         }
 
-        if(state != newState)
+        if (state != newState)
         {
             if (newState == GameState.MORNING)
             {

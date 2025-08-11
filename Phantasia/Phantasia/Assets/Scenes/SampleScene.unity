@@ -2790,6 +2790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 383436733960076000, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 383436733960076000, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+        type: 3}
       propertyPath: springBones.Array.data[0]
       value: 
       objectReference: {fileID: 845421120}
@@ -14231,6 +14236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 383436733960076000, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 383436733960076000, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+        type: 3}
       propertyPath: springBones.Array.data[0]
       value: 
       objectReference: {fileID: 214358227}
@@ -14368,6 +14378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: colliders.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308576695705339276, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6308576695705339276, guid: 97d3edd3ac2c64c56baa088d6a1af47c,
         type: 3}
@@ -20135,6 +20150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404705590668572772, guid: 779724d2f32ff4defbea401ae8acd61e,
         type: 3}
+      propertyPath: dragForce
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8404705590668572772, guid: 779724d2f32ff4defbea401ae8acd61e,
+        type: 3}
       propertyPath: springBones.Array.data[0]
       value: 
       objectReference: {fileID: 5372348909046966037}
@@ -20173,6 +20193,11 @@ PrefabInstance:
       propertyPath: springBones.Array.data[7]
       value: 
       objectReference: {fileID: 5777092685938659135}
+    - target: {fileID: 8518416901358933428, guid: 779724d2f32ff4defbea401ae8acd61e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8518416901358933428, guid: 779724d2f32ff4defbea401ae8acd61e,
         type: 3}
       propertyPath: m_Controller

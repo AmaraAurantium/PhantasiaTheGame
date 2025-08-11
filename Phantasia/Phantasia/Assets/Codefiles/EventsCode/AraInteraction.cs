@@ -23,24 +23,31 @@ public class AraInteraction : MonoBehaviour
 
     void Awake()
     {
-        
+
     }
 
     void Start()
     {
-        
+
     }
+
+    public bool ShouldAcceptInput = true;
 
 
     void Update()
     {
+        if (!ShouldAcceptInput)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             bool bHandled = false;
             foreach (var araInteractionInfo in araInteractionInfos)
             {
                 var clickedObj = getClickedObject(out RaycastHit hit);
-                if(araInteractionInfo.ara == clickedObj)
+                if (araInteractionInfo.ara == clickedObj)
                 {
                     onAraClicked?.Invoke();
 
@@ -63,9 +70,9 @@ public class AraInteraction : MonoBehaviour
     {
         GameObject target = null;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast (ray.origin, ray.direction * 10, out hit))
+        if (Physics.Raycast(ray.origin, ray.direction * 10, out hit))
         {
-            if (!isPointerOverUIObject()){ target = hit.collider.gameObject; }
+            if (!isPointerOverUIObject()) { target = hit.collider.gameObject; }
         }
         return target;
     }

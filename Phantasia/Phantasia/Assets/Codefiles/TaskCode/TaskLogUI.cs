@@ -61,7 +61,7 @@ public class TaskLogUI : MonoBehaviour
 		taskScrollingList.CleanTaskList();
 		foreach (var taskInfo in TaskManager.instance.taskList)
 		{
-			if (taskInfo.state == TaskState.HIDDEN)
+			if (taskInfo.GetState() == TaskState.HIDDEN)
 			{
 				continue;
 			}
@@ -91,7 +91,7 @@ public class TaskLogUI : MonoBehaviour
 		taskTitle.readOnly = true;
 		taskDescription.text = task.getDescription();
 
-		if (currentSelectedTask.state == TaskState.COMPLETED)
+		if (currentSelectedTask.GetState() == TaskState.COMPLETED)
 		{
 			doneToggle.isOn = true;
 

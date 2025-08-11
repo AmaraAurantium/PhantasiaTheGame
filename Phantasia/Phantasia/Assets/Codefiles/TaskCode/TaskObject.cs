@@ -7,7 +7,9 @@ using UnityEngine;
 public class TaskObject
 {
     public string title;
-    public TaskState state { get; private set; } = TaskState.PROGRESS;
+
+    public TaskState GetState() { return state; }
+    [SerializeField] private TaskState state; //{ get; private set; } = TaskState.PROGRESS;
     private bool isUserTask;
     private string description;
     private float estimateTime;

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour, IDataPersistance 
+public class ShopManager : MonoBehaviour, IDataPersistance
 {
-    public List<ShopObject> itemList = new List<ShopObject>();
+	public List<ShopObject> itemList = new List<ShopObject>();
 	[SerializeField] public List<Material> matList = new List<Material>();
 	[SerializeField] public List<Sprite> visualList = new List<Sprite>();
 	[SerializeField] public List<GameObject> subitemList = new List<GameObject>();
@@ -17,7 +17,7 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 
 		foreach (ShopObject item in itemList)
 		{
-			if (item.state == ItemState.GIFTED)
+			if (item.GetState() == ItemState.GIFTED)
 			{
 				changeLook(item, true);
 			}
@@ -38,8 +38,8 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 		instance = this;
 	}
 
-    private void OnEnable()
-    {
+	private void OnEnable()
+	{
 		EventsManager.instance.coinEvents.onItemPurchase += ItemPurchase;
 		EventsManager.instance.coinEvents.onItemGifted += ItemGifted;
 		EventsManager.instance.coinEvents.onItemUngifted += ItemUngifted;
@@ -53,7 +53,7 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 	}
 
 	private void ItemPurchase(ShopObject item)
-    {
+	{
 		item.buyItem();
 		EventsManager.instance.coinEvents.CoinSpent(item.getCost());
 	}
@@ -84,8 +84,8 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 	}
 
 	private void changeLook(ShopObject item, bool colorlessToColor)
-		//colorlessToColor true when converting from dark to color
-    {
+	//colorlessToColor true when converting from dark to color
+	{
 		if (colorlessToColor)
 		{
 			bool itemIsDeco = item.getIsDeco();
@@ -94,9 +94,9 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 				GameObject furnature = subitemList[furnatureID];
 
 				if (itemIsDeco)
-                {
+				{
 					furnature.SetActive(true);
-                }
+				}
 				Renderer renderer = furnature.GetComponent<Renderer>();
 				renderer.material = matList[item.getColorMat()];
 			}
@@ -116,5 +116,5 @@ public class ShopManager : MonoBehaviour, IDataPersistance
 				renderer.material = matList[item.getDarkMat()];
 			}
 		}
-    }
+	}
 }

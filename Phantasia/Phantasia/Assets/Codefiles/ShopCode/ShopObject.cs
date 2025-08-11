@@ -7,7 +7,8 @@ using UnityEngine;
 public class ShopObject
 {
     public string name;
-    public ItemState state { get; private set; }
+    public ItemState GetState() { return state; }
+    public ItemState state;// { get; private set; }
     private bool isDeco;
     private int cost;
     private string description;
