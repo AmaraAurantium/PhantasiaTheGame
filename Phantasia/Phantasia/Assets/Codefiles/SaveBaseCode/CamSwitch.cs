@@ -18,6 +18,36 @@ public class CamSwitch : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        EventsManager.instance.coinEvents.onGameStateChange += stateChange;
+    }
+
+    private void OnDisable()
+    {
+        EventsManager.instance.coinEvents.onGameStateChange -= stateChange;
+    }
+
+    private void stateChange(GameState state)
+    {
+        if (state == GameState.INTRO)
+        {
+            camswitch = 0;
+        }
+        else if(state == GameState.MORNING)
+        {
+            camswitch = 0;
+        }
+        else if(state == GameState.DAY)
+        {
+            camswitch = 1;
+        }
+        else
+        {
+            camswitch = 2;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

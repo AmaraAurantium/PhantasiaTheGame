@@ -23,6 +23,7 @@ public class EventsManager : MonoBehaviour
     public DialogueEvents dialogueEvents;
     public AraInteraction araInteraction;
     public TaskEvents taskEvents;
+    public CoinEvents coinEvents;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class EventsManager : MonoBehaviour
         //initialize all events
         dialogueEvents = new DialogueEvents();
         taskEvents = new TaskEvents();
-    }
+        coinEvents = new CoinEvents();
+}
 
 }

@@ -7,12 +7,14 @@ using UnityEngine;
 public class TaskObject
 {
     public string title;
-    public TaskState state { get; private set; }
-    [SerializeField] private bool isUserTask;
-    [SerializeField] private string description;
-    [SerializeField] private float estimateTime;
-    private int timesCompleted;//only applicable for system tasks
+
+    public TaskState GetState() { return state; }
+    [SerializeField] private TaskState state; //{ get; private set; } = TaskState.PROGRESS;
+    private bool isUserTask;
+    private string description;
+    private float estimateTime;
     private int coin;
+    private int timesCompleted;//only applicable for system tasks
 
     //constructor
     public TaskObject(string name, float time, string descrip, bool tasktype)
@@ -26,6 +28,12 @@ public class TaskObject
         coin = calculateCoin(time);
         timesCompleted = 0;
         isUserTask = tasktype;
+        if (tasktype == false)
+        {
+            state = TaskState.HIDDEN;
+        }
+
+        //Debug.Log(name + " task created with " + coin + " coins");
         //system tasks are false, user tasks are true
     }
 
@@ -59,6 +67,7 @@ public class TaskObject
     //Hide system tasks
     public void hideTask()
     {
+        Debug.Log("hideTask " + title);
         state = TaskState.HIDDEN;
     }
 
@@ -68,16 +77,10 @@ public class TaskObject
         state = TaskState.COMPLETED;
     }
 
-    //remove task
+    //uncomplete task
     public void uncompletetask()
     {
         state = TaskState.PROGRESS;
-    }
-
-    //change state after rewards are given so that these tasks can be deleted
-    public void claimtask()
-    {
-        state = TaskState.CLAIMED;
     }
 
     //change time 
@@ -106,14 +109,10 @@ public class TaskObject
 
     private int calculateCoin(float time)
     {
-        int coin;
-        if (time < 1.0f)
+        int coin = (int)(estimateTime * 10);
+        if (coin < 10)
         {
             coin = 10;
-        }
-        else
-        {
-            coin = (int)(estimateTime * 10);
         }
         return coin;
     }

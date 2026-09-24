@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public enum TaskState
 {
-    HIDDEN,
-    PROGRESS,
-    COMPLETED,
-    CLAIMED
+	PROGRESS,
+	COMPLETED,
+	HIDDEN,
 }

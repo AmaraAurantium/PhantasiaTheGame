@@ -12,31 +12,59 @@ public class DialogueManager : MonoBehaviour
 
     private bool dialoguePlaying = false;
 
+    private InkExternalFunctions inkExternalFunctions;
+    private InkDialogueVariables inkDialogueVariables;
+
     private void Awake()
     {
         story = new Story(inkJson.text);
+        inkExternalFunctions = new InkExternalFunctions();
+        inkExternalFunctions.Bind(story);
+        inkDialogueVariables = new InkDialogueVariables(story);
     }
 
-    private void Start()
+    private void OnDestroy()
+    {
+        inkExternalFunctions.unBind(story);
+    }
+
+    private void OnEnable()
     {
         if (EventsManager.instance == null) return;
         EventsManager.instance.dialogueEvents.onEnterDialogue += EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked += SubmitPressed;
         EventsManager.instance.dialogueEvents.onUpdateChoiceIndex += UpdateChoiceIndex;
+        EventsManager.instance.dialogueEvents.onUpdateInkDialogueVariable += UpdateInkDialogueVariable;
+        EventsManager.instance.coinEvents.onGameStateChange += gameStateChange;
 
 
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         EventsManager.instance.dialogueEvents.onEnterDialogue -= EnterDialogue;
         EventsManager.instance.araInteraction.onScreenClicked -= SubmitPressed;
-         EventsManager.instance.dialogueEvents.onUpdateChoiceIndex -= UpdateChoiceIndex;
+        EventsManager.instance.dialogueEvents.onUpdateChoiceIndex -= UpdateChoiceIndex;
+        EventsManager.instance.dialogueEvents.onUpdateInkDialogueVariable -= UpdateInkDialogueVariable;
+        EventsManager.instance.coinEvents.onGameStateChange -= gameStateChange;
+    }
+
+    private void gameStateChange(GameState state)
+    {
+        EventsManager.instance.dialogueEvents.UpdateInkDialogueVariable(
+           "GameState",
+           new StringValue(state.ToString())
+       );
     }
 
     private void UpdateChoiceIndex(int choiceIndex)
     {
         this.currentChoiceIndex = choiceIndex;
+    }
+
+    private void UpdateInkDialogueVariable(string name, Ink.Runtime.Object value)
+    {
+        inkDialogueVariables.UpdateVariableState(name, value);
     }
 
     private void SubmitPressed()
@@ -71,6 +99,10 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Knot name was empty string when entering dialogue");
         }
 
+        // start listening for variables
+        inkDialogueVariables.SyncVariablesAndStartListening(story);
+
+        // kick off the story
         ContinueOrExitStory();
         return true;
     }
@@ -120,9 +152,13 @@ public class DialogueManager : MonoBehaviour
 
         EventsManager.instance.dialogueEvents.DialogueFinished();
 
+        // stop listening for dialogue variables
+        inkDialogueVariables.StopListening(story);
+
         //reset story state
         story.ResetState();
     }
+
     private bool IsLineBlank(string dialogueLine)
     {
         return dialogueLine.Trim().Equals("") || dialogueLine.Trim().Equals("\n");
